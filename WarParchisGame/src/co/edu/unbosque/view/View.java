@@ -8,8 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
-public class View2 extends JFrame {
+public class View extends JFrame {
 
 
 	private DesignTablero tablero;
@@ -22,16 +23,43 @@ public class View2 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public View2() {
-		tablero = new DesignTablero();
-		getContentPane().add(tablero);
+	public View() {
+		initiComponents();
+		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 800, 713);
 		setLocationRelativeTo(null);
 
 	}
+	
+	public void initiComponents() {
+		tablero = new DesignTablero();
+		getContentPane().add(tablero);
+	}
 
+	   public String inputWindows(String info, String title, int messageType) {
+
+	        return JOptionPane.showInputDialog(null, info, title, messageType);
+	    }
+
+	    public void exportConsole(String info) {
+	        System.out.println(info);
+	    }
+
+	    public void exportWindows(String info, String title, int messageType) {
+	        JOptionPane.showMessageDialog(null, info, title, messageType);
+	    }
+
+	    public boolean validationWindows(String info, String title) {
+	        int answer = JOptionPane.showConfirmDialog(null, info, title,
+	                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+	        if (answer == 0) {
+	            return true;
+	        } else {
+	            return false;
+	        }
+	    }
 	public DesignTablero getTablero() {
 		return tablero;
 	}

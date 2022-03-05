@@ -1,13 +1,13 @@
 package co.edu.unbosque.controller;
-import co.edu.unbosque.view.View2;
+import co.edu.unbosque.view.View;
 
 
 public class Controller {
-    private View2 view;
+    private View view;
  
 
     public Controller(){
-    	view = new View2();
+    	view = new View();
     	
     	
     	funcionar();

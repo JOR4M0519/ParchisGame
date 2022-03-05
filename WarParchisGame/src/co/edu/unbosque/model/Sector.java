@@ -2,12 +2,11 @@ package co.edu.unbosque.model;
 
 public class Sector {
 
-	private Celdas[] sectorUno;
-	private Celdas vector;
+	private Celdas[] sector;
 	private String color;
 
 	public Sector(String color) {
-		sectorUno = new Celdas[17];
+		sector = new Celdas[17];
 		this.color = color;
 		moverLauIntentoArray();
 	}
@@ -39,17 +38,17 @@ public class Sector {
 
 			for(int x=0;x<=16;x++) {
 
-				if(sectorUno[0]==null) {
-					sectorUno[0]=vector = new Celdas(xCor,yCor);
+				if(sector[0]==null) {
+					sector[0]=new Celdas(xCor,yCor);
 				}else if (x>0 && x<=7){
 					yCor=yCor-32*n;
-					sectorUno[x]=vector = new Celdas(xCor,yCor);
+					sector[x]=new Celdas(xCor,yCor);
 				}else if(x>7 && x<=15) {
 					xCor = xCor+32*n;
-					sectorUno[x]=vector = new Celdas(xCor-11*n,yCor-23*n);
+					sector[x]=new Celdas(xCor-11*n,yCor-23*n);
 				}else if(x>15 && x<=16) {
 					yCor=yCor-97*n;
-					sectorUno[x]=vector = new Celdas(xCor-10*n,yCor);
+					sector[x]=new Celdas(xCor-10*n,yCor);
 				}
 
 			}	
@@ -58,29 +57,29 @@ public class Sector {
 
 		for(int x=0;x<=16;x++) {
 
-			if(sectorUno[0]==null) {
-				sectorUno[0]=vector = new Celdas(xCor,yCor);
+			if(sector[0]==null) {
+				sector[0]=new Celdas(xCor,yCor);
 			}else if (x>0 && x<=7){
 				xCor=xCor-32*n;
-				sectorUno[x]=vector = new Celdas(xCor,yCor);
+				sector[x]=new Celdas(xCor,yCor);
 			}else if(x>7 && x<=15) {
 				yCor = yCor-32*n;
-				sectorUno[x]=vector = new Celdas(xCor-20*n,yCor+9*n);
+				sector[x]=new Celdas(xCor-20*n,yCor+9*n);
 			}else if(x>15 && x<=16) {
 				xCor=xCor-97*n;
-				sectorUno[x]=vector = new Celdas(xCor+1*n,yCor+8*n);
+				sector[x]=new Celdas(xCor+1*n,yCor+8*n);
 			}
 		}	
 
 
 	}
 
-	public Celdas[] getSectorUno() {
-		return sectorUno;
+	public Celdas[] getSector() {
+		return sector;
 	}
 
-	public void setSectorUno(Celdas[] sectorUno) {
-		this.sectorUno = sectorUno;
+	public void setSector(Celdas[] sectorUno) {
+		this.sector = sectorUno;
 	}
 
 }

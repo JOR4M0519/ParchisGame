@@ -1,29 +1,36 @@
 package co.edu.unbosque.model;
 public class Tablero {
 
-	private Sector sectorAmarillo,sectorAzul,sectorRojo,sectorVerde;
-	private Sector[] unaVuelta;
+	private Sector[] recorrido;
+	private Sector[] meta;
 
 
 	public Tablero(){
 
-		unaVuelta = new Sector[4];
+		recorrido = new Sector[4];
 
-		unaVuelta[0] = sectorAmarillo = new Sector("amarillo");
-		unaVuelta[1] = sectorAzul = new Sector("azul");
-		unaVuelta[2] = sectorRojo = new Sector("rojo");
-		unaVuelta[3] = sectorVerde = new Sector("verde");
+		recorrido[0] = new Sector("amarillo");
+		recorrido[1] = new Sector("azul");
+		recorrido[2] = new Sector("rojo");
+		recorrido[3] = new Sector("verde");
+		
+		meta = new Sector[4];
+
+		meta[0] = new Sector("amarillo");
+		meta[1] = new Sector("azul");
+		meta[2] = new Sector("rojo");
+		meta[3] = new Sector("verde");
 
 	}
 
 
-	public Sector[] getUnaVuelta() {
-		return unaVuelta;
+	public Sector[] getRecorrido() {
+		return recorrido;
 	}
 
 
-	public void setUnaVuelta(Sector[] unaVuelta) {
-		this.unaVuelta = unaVuelta;
+	public void setRecorrido(Sector[] unaVuelta) {
+		this.recorrido = unaVuelta;
 	}
 
 

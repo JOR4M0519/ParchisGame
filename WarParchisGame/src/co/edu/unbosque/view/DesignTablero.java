@@ -50,7 +50,7 @@ public class DesignTablero extends JPanel {
 		for (int i = 0; i <= 16; i++) {
 			try {
 				Thread.sleep(1000);
-				coordenada.setLocation(tablero.getUnaVuelta()[x].getSectorUno()[i].getX(),tablero.getUnaVuelta()[x].getSectorUno()[i].getY());
+				coordenada.setLocation(tablero.getRecorrido()[x].getSector()[i].getX(),tablero.getRecorrido()[x].getSector()[i].getY());
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} 			
