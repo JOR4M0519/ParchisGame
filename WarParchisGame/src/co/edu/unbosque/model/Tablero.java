@@ -3,6 +3,7 @@ public class Tablero {
 	private Dados dados;
 	private Jugador[] jugadores;
 	private Sector[] recorrido;
+	private int turno;
 
 	public Tablero(int[] numJugadores,String[] paises){
 
@@ -38,6 +39,15 @@ public class Tablero {
 
 	
 	
+	
+	public int getTurno() {
+		return turno;
+	}
+
+	public void setTurno(int turno) {
+		this.turno = turno;
+	}
+
 	public Dados getDados() {
 		return dados;
 	}

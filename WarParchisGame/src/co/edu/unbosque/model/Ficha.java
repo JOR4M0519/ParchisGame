@@ -3,6 +3,7 @@ package co.edu.unbosque.model;
 public  class Ficha extends Habilidades{
 	private Celdas ubicacion;
 	private String tipoFicha;
+	private String urlIlustracion;
 	
 	
 	public Ficha(int x, int y) {
@@ -21,7 +22,19 @@ public  class Ficha extends Habilidades{
 		
 	}
     
-    public Celdas getUbicacion() {
+	
+	
+    public String getUrlIlustracion() {
+		return urlIlustracion;
+	}
+
+
+	public void setUrlIlustracion(String urlIlustracion) {
+		this.urlIlustracion = urlIlustracion;
+	}
+
+
+	public Celdas getUbicacion() {
 		return ubicacion;
 	}
 

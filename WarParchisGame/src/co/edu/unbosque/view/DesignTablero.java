@@ -29,14 +29,14 @@ public class DesignTablero extends JPanel {
 		tablero = new Tablero(null,null);
 		setLayout(null);
 		
-		img = new ImageIcon("./Data/Sombrero_1.png");
+		img = new ImageIcon("./Data/EEUU_1.png");
 		coordenada = new JLabel();
 		coordenada.setBounds(402,513,25,25);
 		coordenada.setIcon(new ImageIcon(img.getImage()));
 		coordenada.setBackground(Color.BLACK);
 		add(coordenada);
 
-		img = new ImageIcon("./Data/Table 1_12.png");
+		img = new ImageIcon("./Data/Table.png");
 		fondo = new JLabel();
 		fondo.setBounds(0,0,675,675);
 		fondo.setIcon(new ImageIcon(img.getImage()));
