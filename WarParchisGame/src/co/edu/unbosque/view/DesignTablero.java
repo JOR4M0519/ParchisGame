@@ -29,9 +29,7 @@ public class DesignTablero extends JPanel {
 		this.jugador = jugador;
 		fichasInicio();
 		
-<<<<<<< HEAD
-		img = new ImageIcon("./Data/Table 1_12.png");
-=======
+
 		img = new ImageIcon("./Data/EEUU_1.png");
 		coordenada = new JLabel();
 		coordenada.setBounds(402,513,25,25);
@@ -40,7 +38,6 @@ public class DesignTablero extends JPanel {
 		add(coordenada);
 
 		img = new ImageIcon("./Data/Table.png");
->>>>>>> Yopalito
 		fondo = new JLabel();
 		fondo.setBounds(0,0,675,675);
 		fondo.setIcon(new ImageIcon(img.getImage()));

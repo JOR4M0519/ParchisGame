@@ -39,12 +39,6 @@ public class Tablero {
 		}	
 	}
 
-<<<<<<< HEAD
-=======
-
-	public Sector[] getRecorrido() {
-		return recorrido;
-	}
 
 	
 	
@@ -57,7 +51,6 @@ public class Tablero {
 		this.turno = turno;
 	}
 
->>>>>>> Yopalito
 	public Dados getDados() {
 		return dados;
 	}
