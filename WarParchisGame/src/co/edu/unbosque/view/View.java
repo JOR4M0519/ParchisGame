@@ -1,34 +1,45 @@
 package co.edu.unbosque.view;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
 
-public class View extends JFrame{
-	
-	public View(){
-		
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+
+public class View2 extends JFrame {
+
+
+	private DesignTablero tablero;
+
+	/**
+	 * Launch the application.
+	 */
+
+
+	/**
+	 * Create the frame.
+	 */
+	public View2() {
+		tablero = new DesignTablero();
+		getContentPane().add(tablero);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(0, 0, 800, 713);
+		setLocationRelativeTo(null);
+
 	}
-	
-	
-    public String inputWindows(String info, String title, int messageType) {
 
-        return JOptionPane.showInputDialog(null, info, title, messageType);
-    }
+	public DesignTablero getTablero() {
+		return tablero;
+	}
 
-    public void exportConsole(String info) {
-        System.out.println(info);
-    }
+	public void setTablero(DesignTablero tablero) {
+		this.tablero = tablero;
+	}
 
-    public void exportWindows(String info, String title, int messageType) {
-        JOptionPane.showMessageDialog(null, info, title, messageType);
-    }
 
-    public boolean validationWindows(String info, String title) {
-        int answer = JOptionPane.showConfirmDialog(null, info, title,
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (answer == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 }
