@@ -21,11 +21,9 @@ public class DesignTablero extends JPanel {
 		
 		img = new ImageIcon("./Data/pngwing.com (1).png");
 		coordenada = new JLabel();
-		
-		coordenada.setBounds(412,525,15,21);
-//		coordenada.setBounds(275,350,10,14);
+		//1.5*[(-10x),(-10y)]
+		coordenada.setBounds(402,648,15,21);
 		coordenada.setIcon(new ImageIcon(img.getImage()));
-//		coordenada.setBounds(50,50,20,10);
 		coordenada.setBackground(Color.BLACK);
 		add(coordenada);
 		
@@ -40,25 +38,47 @@ public class DesignTablero extends JPanel {
 	}
 	
 	public void bucle() {
-		System.out.println("y");
+//		System.out.println("y");
 		for (int i = 0; i < 50; i++) {
-			System.out.println(i);	 
-			coordenada.setLocation(coordenada.getLocation().x+1, coordenada.getLocation().y+1);
-//			try {
-//				Thread.sleep(1000);
-//				mover();
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} 
-			
-			
+
+			try {
+				Thread.sleep(1000);
+				coordenada.setLocation(coordenada.getLocation().x, coordenada.getLocation().y-33);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 			
+		}	
 			
 		}
-	}
+	
 	
 	public void mover() {
 		
+	}
+
+	public JLabel getFondo() {
+		return fondo;
+	}
+
+	public void setFondo(JLabel fondo) {
+		this.fondo = fondo;
+	}
+
+	public ImageIcon getImg() {
+		return img;
+	}
+
+	public void setImg(ImageIcon img) {
+		this.img = img;
+	}
+
+	public JLabel getCoordenada() {
+		return coordenada;
+	}
+
+	public void setCoordenada(JLabel coordenada) {
+		this.coordenada = coordenada;
 	}
 	
 	

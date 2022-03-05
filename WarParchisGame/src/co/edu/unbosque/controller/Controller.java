@@ -8,7 +8,15 @@ public class Controller {
 
     public Controller(){
     	view = new View2();
+
+    	funcionar();
     	view.getTablero().bucle();
     	System.out.println("Hola");
       }
+
+	public void funcionar() {
+		// TODO Auto-generated method stub
+		view.moverFicha();
+	}
 }
+

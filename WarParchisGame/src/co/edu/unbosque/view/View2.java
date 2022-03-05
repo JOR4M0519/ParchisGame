@@ -17,31 +17,42 @@ public class View2 extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					View2 frame = new View2();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					View2 frame = new View2();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
 	public View2() {
+		tablero = new DesignTablero();
+		getContentPane().add(tablero);
+		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //		setBounds(0, 0, 466, 488);
 		setBounds(0, 0, 800, 800);
-		tablero = new DesignTablero();
-		getContentPane().add(tablero);
+
 		
 		
 	
+	}
+	
+	public void moverFicha() {
+		tablero.bucle();
+//		System.out.println("HOLA");
+//		for (int i = 0; i < 50; i++) {
+//			System.out.println(i);	 
+//			tablero.getCoordenada().setLocation(tablero.getCoordenada().getLocation().x+1, tablero.getCoordenada().getLocation().y+1);
+//		}
 	}
 
 	public DesignTablero getTablero() {
@@ -52,8 +63,6 @@ public class View2 extends JFrame {
 		this.tablero = tablero;
 	}
 
-
-	
 	
 
 }
