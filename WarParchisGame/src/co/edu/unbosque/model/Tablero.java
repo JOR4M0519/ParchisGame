@@ -1,28 +1,30 @@
 package co.edu.unbosque.model;
-
 public class Tablero {
 
-    private Celdas[] columnaFinal;
-    private Celdas[] sectores;
+	private Sector sectorAmarillo,sectorAzul,sectorRojo,sectorVerde;
+	private Sector[] unaVuelta;
 
-    public Tablero(){
-        columnaFinal = new Celdas[32];
-        sectores = new Celdas[64];
 
-    }
+	public Tablero(){
 
-    public void hacerTablero(){
+		unaVuelta = new Sector[4];
 
-        //Rellenar Arreglo
+		unaVuelta[0] = sectorAmarillo = new Sector("amarillo");
+		unaVuelta[1] = sectorAzul = new Sector("azul");
+		unaVuelta[2] = sectorRojo = new Sector("rojo");
+		unaVuelta[3] = sectorVerde = new Sector("verde");
 
-        for (int i = 0; i < 6; i++) {
+	}
 
-        }
 
-        //Rellenar Arreglo 2
-        for (int i = 0; i < 3; i++) {
+	public Sector[] getUnaVuelta() {
+		return unaVuelta;
+	}
 
-        }
 
-    }
+	public void setUnaVuelta(Sector[] unaVuelta) {
+		this.unaVuelta = unaVuelta;
+	}
+
+
 }

@@ -45,15 +45,6 @@ public class View2 extends JFrame {
 		
 	
 	}
-	
-	public void moverFicha() {
-		tablero.bucle();
-//		System.out.println("HOLA");
-//		for (int i = 0; i < 50; i++) {
-//			System.out.println(i);	 
-//			tablero.getCoordenada().setLocation(tablero.getCoordenada().getLocation().x+1, tablero.getCoordenada().getLocation().y+1);
-//		}
-	}
 
 	public DesignTablero getTablero() {
 		return tablero;
