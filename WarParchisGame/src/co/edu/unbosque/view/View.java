@@ -7,6 +7,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import co.edu.unbosque.model.Jugador;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -23,8 +26,8 @@ public class View extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public View() {
-		initiComponents();
+	public View(Jugador[] jugador) {
+		initiComponents(jugador);
 		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,8 +36,8 @@ public class View extends JFrame {
 
 	}
 	
-	public void initiComponents() {
-		tablero = new DesignTablero();
+	public void initiComponents(Jugador[] jugador) {
+		tablero = new DesignTablero(jugador);
 		getContentPane().add(tablero);
 	}
 

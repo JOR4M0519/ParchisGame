@@ -12,8 +12,6 @@ public class Celdas {
     	this.y = y;
     	
     }
-
-    
     
 	public boolean isSeguro() {
 		return seguro;

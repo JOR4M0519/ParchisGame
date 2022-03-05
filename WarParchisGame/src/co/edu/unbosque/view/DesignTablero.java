@@ -8,34 +8,27 @@ import java.util.Iterator;
 import javax.swing.*;
 
 import co.edu.unbosque.model.Celdas;
+import co.edu.unbosque.model.Jugador;
 import co.edu.unbosque.model.Sector;
 import co.edu.unbosque.model.Tablero;
 
 public class DesignTablero extends JPanel {
-	//Lau
-	private Tablero tablero;
 	
-	//Lau
+	private JLabel[][] fichas;
+	private Jugador[] jugador;
 	private JLabel fondo;
 	private ImageIcon img;
 	private JLabel coordenada;
 
-
-
 	/**
 	 * Create the panel.
 	 */
-	public DesignTablero() {
-		tablero = new Tablero(null,null);
-		setLayout(null);
+	public DesignTablero(Jugador[] jugador) {
 		
-		img = new ImageIcon("./Data/Sombrero_1.png");
-		coordenada = new JLabel();
-		coordenada.setBounds(402,513,25,25);
-		coordenada.setIcon(new ImageIcon(img.getImage()));
-		coordenada.setBackground(Color.BLACK);
-		add(coordenada);
-
+		setLayout(null);
+		this.jugador = jugador;
+		fichasInicio();
+		
 		img = new ImageIcon("./Data/Table 1_12.png");
 		fondo = new JLabel();
 		fondo.setBounds(0,0,675,675);
@@ -43,32 +36,61 @@ public class DesignTablero extends JPanel {
 		add(fondo);
 
 	}
-	
+
 	public void mover(String colorFicha) {
+
+//		for(int x=0;x<4;x++) {
+//			for (int i = 0; i <= 16; i++) {
+//				try {
+//					Thread.sleep(1000);
+//					coordenada.setLocation(tablero.getRecorrido()[x].getSector()[i].getX(),tablero.getRecorrido()[x].getSector()[i].getY());
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				} 			
+//			}	
+//			
+//		}
+//		for(int x=0;x<4;x++) {
+//			for (int i = 0; i <8; i++) {
+//				try {
+//					Thread.sleep(1000);
+//					coordenada.setLocation(tablero.getRecorrido()[x].getFilaGanadora()[i].getX(),tablero.getRecorrido()[x].getFilaGanadora()[i].getY());
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				} 
+//			}
+//		}
+
+	}
+
+	public void fichasInicio() {
 		
-		for(int x=0;x<4;x++) {
-		for (int i = 0; i <= 16; i++) {
-			try {
-				Thread.sleep(1000);
-				coordenada.setLocation(tablero.getRecorrido()[x].getSector()[i].getX(),tablero.getRecorrido()[x].getSector()[i].getY());
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} 			
-		}	
+		fichas = new JLabel[jugador.length][4];
+		
+		for(int i=0;i<jugador.length;i++) {
+			
+			for(int x=0;x<4;x++) {
+				ImageIcon img = new ImageIcon("./Data/Sombrero_1.png");
+				JLabel coordenada = new JLabel();
+				coordenada.setBounds(jugador[i].getFicha()[x].getUbicacion().getX(),jugador[i].getFicha()[x].getUbicacion().getY(),25,25);
+				coordenada.setIcon(new ImageIcon(img.getImage()));
+				coordenada.setBackground(Color.BLACK);
+				fichas[i][x] = coordenada;		
+			}			
 		}
-		for(int x=0;x<4;x++) {
-			for (int i = 0; i <8; i++) {
-				try {
-					Thread.sleep(1000);
-					coordenada.setLocation(tablero.getRecorrido()[x].getFilaGanadora()[i].getX(),tablero.getRecorrido()[x].getFilaGanadora()[i].getY());
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				} 
-			}
+		
+		moverfichas();
+	}
+
+	public void moverfichas() {
+		
+		for(int x=0;x<fichas.length;x++) {
+			for(int i=0;i<fichas[x].length;i++) {
+				add(fichas[x][i]);
+			}	
 		}
 		
 	}
-
 
 	public JLabel getFondo() {
 		return fondo;
@@ -78,13 +100,6 @@ public class DesignTablero extends JPanel {
 		this.fondo = fondo;
 	}
 
-	public ImageIcon getImg() {
-		return img;
-	}
-
-	public void setImg(ImageIcon img) {
-		this.img = img;
-	}
 
 	public JLabel getCoordenada() {
 		return coordenada;

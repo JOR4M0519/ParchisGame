@@ -1,13 +1,13 @@
 package co.edu.unbosque.model;
 
 public  class Ficha extends Habilidades{
+	
 	private Celdas ubicacion;
 	private String tipoFicha;
-	
+	private String urlImagen;
 	
 	public Ficha(int x, int y) {
 		this.ubicacion = new Celdas(x, y);
-		
 	}
 	
 
@@ -15,7 +15,6 @@ public  class Ficha extends Habilidades{
     	
     }
 
-	@Override
 	public void activarHabilidadEspecial() {
 	
 		
@@ -35,6 +34,14 @@ public  class Ficha extends Habilidades{
 
 	public void setTipoFicha(String tipoFicha) {
 		this.tipoFicha = tipoFicha;
+	}
+
+	public String getUrlImagen() {
+		return urlImagen;
+	}
+
+	public void setUrlImagen(String urlImagen) {
+		this.urlImagen = urlImagen;
 	}
 	
 }

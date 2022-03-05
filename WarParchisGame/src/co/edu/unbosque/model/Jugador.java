@@ -4,47 +4,62 @@ public class Jugador {
 
 	private Ficha ficha[];
 	private String pais;
-	
+
 	public Jugador(String pais) {
 		this.pais = pais;
 		ficha = new Ficha[4];
 		generarFichas();
-		
+
 	}
-	
+
 	public void generarFichas() {
-		for (int i = 0; i < ficha.length; i++) {
-			ficha[0] = new Ficha(convertirCoordenadas(pais)[0], convertirCoordenadas(pais)[1]);
-		}
-	}
-	
-	public int[] convertirCoordenadas(String pais) {
-		int[] coordenadas = new int[2];
-		
+		int coorX=0;
+		int coorY=0;
+
 		switch(pais){
-			
+
 		case "EEUU": 
-			coordenadas[0]=0;
-			coordenadas[1]=0;
+			coorX=505;
+			coorY=75;
 			break;
-			
+
 		case "CHINA":
-			coordenadas[0]=0;
-			coordenadas[1]=0;
+			coorX=57;
+			coorY=85;
 			break;
-			
+
 		case "OTAN":
-			coordenadas[0]=0;
-			coordenadas[1]=0;
+			coorX=58;
+			coorY=537;
 			break;
-			
+
 		case "UCRANIA":
-			coordenadas[0]=0;
-			coordenadas[1]=0;
+			coorX=509;
+			coorY=530;
 			break;
 		}
-		
-		return coordenadas;
+
+		for (int i = 0; i < 4; i++) {
+
+			switch(i){
+			case 0:ficha[0] = new Ficha(coorX,coorY);
+			break;
+			case 1:
+				coorX=coorX+30;
+				ficha[i] = new Ficha(coorX, coorY);
+				coorX=coorX-30;
+				break;
+			case 2:
+				coorY = coorY+30;
+				ficha[i] = new Ficha(coorX, coorY);
+				break;
+			case 3:
+				coorX=coorX+30;
+				ficha[i] = new Ficha(coorX, coorY);
+				break;
+			}
+
+		}
 	}
 
 	public Ficha[] getFicha() {
@@ -63,6 +78,5 @@ public class Jugador {
 		this.pais = pais;
 	}
 	
-	
-	
+
 }

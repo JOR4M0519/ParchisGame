@@ -1,26 +1,26 @@
 package co.edu.unbosque.controller;
+import javax.swing.JOptionPane;
+
+import co.edu.unbosque.model.Fachada;
 import co.edu.unbosque.view.View;
 
-
 public class Controller {
-    private View view;
- 
 
-    public Controller(){
-    	view = new View();
-    	
-    	
-    	funcionar();
-    	view.getTablero().mover("rojo");
-//    	view.getTablero().bucle();
+	private View view;
+	private Fachada fachada;
 
-      }
+	public Controller(){
+		fachada = new Fachada();
+		fachada.getTablero().generarJugadores(Integer.valueOf(JOptionPane.showInputDialog("ingrese el numero de jugadores")));
+		view = new View(fachada.getTablero().getJugadores());
+		funcionar();
+
+	}
 
 	public void funcionar() {
-		// TODO Auto-generated method stub
-//		tablero.bucle();
-//		view.getTablero().moverLauIntentoArray("rojo");
-//		view.moverFicha();
+
+		view.getTablero().mover("rojo");
+
 	}
 }
 
