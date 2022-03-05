@@ -11,24 +11,13 @@ import javax.swing.JLabel;
 
 public class View2 extends JFrame {
 
-	
+
 	private DesignTablero tablero;
 
 	/**
 	 * Launch the application.
 	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					View2 frame = new View2();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+
 
 	/**
 	 * Create the frame.
@@ -38,12 +27,9 @@ public class View2 extends JFrame {
 		getContentPane().add(tablero);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		setBounds(0, 0, 466, 488);
-		setBounds(0, 0, 800, 800);
+		setBounds(0, 0, 800, 713);
+		setLocationRelativeTo(null);
 
-		
-		
-	
 	}
 
 	public DesignTablero getTablero() {
@@ -54,6 +40,6 @@ public class View2 extends JFrame {
 		this.tablero = tablero;
 	}
 
-	
+
 
 }

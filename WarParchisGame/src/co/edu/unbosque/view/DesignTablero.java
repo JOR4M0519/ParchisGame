@@ -29,9 +29,9 @@ public class DesignTablero extends JPanel {
 		tablero = new Tablero();
 		setLayout(null);
 		
-		img = new ImageIcon("./Data/pngwing.com (1).png");
+		img = new ImageIcon("./Data/Sombrero_1.png");
 		coordenada = new JLabel();
-		coordenada.setBounds(402,513,15,21);
+		coordenada.setBounds(402,513,25,25);
 		coordenada.setIcon(new ImageIcon(img.getImage()));
 		coordenada.setBackground(Color.BLACK);
 		add(coordenada);
