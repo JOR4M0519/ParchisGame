@@ -4,6 +4,7 @@ public class Tablero {
 	private Dados dados;
 	private Jugador[] jugadores;
 	private Sector[] recorrido;
+	private int turno;
 
 	public Tablero(){
 
@@ -38,6 +39,25 @@ public class Tablero {
 		}	
 	}
 
+<<<<<<< HEAD
+=======
+
+	public Sector[] getRecorrido() {
+		return recorrido;
+	}
+
+	
+	
+	
+	public int getTurno() {
+		return turno;
+	}
+
+	public void setTurno(int turno) {
+		this.turno = turno;
+	}
+
+>>>>>>> Yopalito
 	public Dados getDados() {
 		return dados;
 	}

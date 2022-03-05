@@ -4,7 +4,12 @@ public  class Ficha extends Habilidades{
 	
 	private Celdas ubicacion;
 	private String tipoFicha;
+<<<<<<< HEAD
 	private String urlImagen;
+=======
+	private String urlIlustracion;
+	
+>>>>>>> Yopalito
 	
 	public Ficha(int x, int y) {
 		this.ubicacion = new Celdas(x, y);
@@ -20,7 +25,19 @@ public  class Ficha extends Habilidades{
 		
 	}
     
-    public Celdas getUbicacion() {
+	
+	
+    public String getUrlIlustracion() {
+		return urlIlustracion;
+	}
+
+
+	public void setUrlIlustracion(String urlIlustracion) {
+		this.urlIlustracion = urlIlustracion;
+	}
+
+
+	public Celdas getUbicacion() {
 		return ubicacion;
 	}
 
