@@ -26,7 +26,7 @@ public class DesignTablero extends JPanel {
 	 * Create the panel.
 	 */
 	public DesignTablero() {
-		tablero = new Tablero();
+		tablero = new Tablero(null, null);
 		setLayout(null);
 		
 		img = new ImageIcon("./Data/Sombrero_1.png");

@@ -46,13 +46,6 @@ public class Tablero {
 		this.jugadores = jugadores;
 	}
 
-	public Sector[] getMeta() {
-		return meta;
-	}
-
-	public void setMeta(Sector[] meta) {
-		this.meta = meta;
-	}
 
 	public void setRecorrido(Sector[] unaVuelta) {
 		this.recorrido = unaVuelta;
