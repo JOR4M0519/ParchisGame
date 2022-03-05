@@ -4,6 +4,7 @@ public  class Ficha extends Habilidades{
 	private Celdas ubicacion;
 	private String tipoFicha;
 	
+	
 	public Ficha(int x, int y) {
 		this.ubicacion = new Celdas(x, y);
 		

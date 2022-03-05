@@ -6,9 +6,7 @@ public class Tablero {
 
 	public Tablero(int[] numJugadores,String[] paises){
 
-		for (int i = 0; i < numJugadores.length; i++) {
-			jugadores[i] = new Jugador("");
-		}
+		
 		
 		recorrido = new Sector[4];
 
@@ -16,7 +14,17 @@ public class Tablero {
 		recorrido[1] = new Sector("azul");
 		recorrido[2] = new Sector("rojo");
 		recorrido[3] = new Sector("verde");
+		
+//		generarJugadores(numJugadores, paises);
 
+	}
+	
+	public void generarJugadores(int[] numJugadores,String[] paises) {
+		for (int i = 0; i < numJugadores.length; i++) {
+			jugadores[i] = new Jugador(paises[0]);
+		}
+		
+		jugadores[0].getFicha()[0].setUbicacion(recorrido[0].getSector()[0]);
 	}
 	
 	public void moverficha() {

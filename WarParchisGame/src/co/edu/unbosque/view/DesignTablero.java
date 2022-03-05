@@ -26,7 +26,7 @@ public class DesignTablero extends JPanel {
 	 * Create the panel.
 	 */
 	public DesignTablero() {
-		tablero = new Tablero(null, null);
+		tablero = new Tablero(null,null);
 		setLayout(null);
 		
 		img = new ImageIcon("./Data/Sombrero_1.png");
@@ -36,7 +36,7 @@ public class DesignTablero extends JPanel {
 		coordenada.setBackground(Color.BLACK);
 		add(coordenada);
 
-		img = new ImageIcon("./Data/Table 1_1.png");
+		img = new ImageIcon("./Data/Table 1_12.png");
 		fondo = new JLabel();
 		fondo.setBounds(0,0,675,675);
 		fondo.setIcon(new ImageIcon(img.getImage()));
