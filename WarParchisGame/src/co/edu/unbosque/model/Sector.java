@@ -3,15 +3,69 @@ package co.edu.unbosque.model;
 public class Sector {
 
 	private Celdas[] sector;
+	private Celdas[] filaGanadora;
 	private String color;
 
 	public Sector(String color) {
 		sector = new Celdas[17];
+		filaGanadora = new Celdas[8];
 		this.color = color;
-		moverLauIntentoArray();
+		rellenarArregloDeCoordenadasSector();
+		rellenarArregloDeCoordenadasGanar();
+		
+		
 	}
 
-	public void moverLauIntentoArray() {
+	public void rellenarArregloDeCoordenadasGanar() {
+		int n=0;
+		int xCor =0;
+		int yCor =0;
+		
+		if(color.equals("amarillo")) {
+			xCor =325;
+			yCor =612;
+			n =1;
+		}else if(color.equals("rojo")) {
+			xCor =324;
+			yCor =37;
+			n=-1;
+		}else if(color.equals("azul")) {
+			xCor =611;
+			yCor =326;
+			n =1;
+		}else if(color.equals("verde")) {
+			xCor =35;
+			yCor =326;
+			n=-1;
+		}
+		
+		if(color.equals("amarillo") || color.equals("rojo")) {
+
+			for(int x=0;x<8;x++) {
+
+				if(filaGanadora[0]==null) {
+					filaGanadora[0]=new Celdas(xCor,yCor);
+				}else if (x>0 && x<8){
+					yCor=yCor-32*n;
+					filaGanadora[x]=new Celdas(xCor,yCor);
+				}
+			}	
+			return;
+		}
+
+		for(int x=0;x<8;x++) {
+
+			if(filaGanadora[0]==null) {
+				filaGanadora[0]=new Celdas(xCor,yCor);
+			}else if (x>0 && x<8){
+				xCor=xCor-32*n;
+				filaGanadora[x]=new Celdas(xCor,yCor);
+			}
+		}
+		
+	}
+
+	public void rellenarArregloDeCoordenadasSector() {
 		int xCor =0;
 		int yCor =0;
 		int n = 0;
@@ -50,7 +104,6 @@ public class Sector {
 					yCor=yCor-97*n;
 					sector[x]=new Celdas(xCor-10*n,yCor);
 				}
-
 			}	
 			return;
 		}
@@ -70,8 +123,6 @@ public class Sector {
 				sector[x]=new Celdas(xCor+1*n,yCor+8*n);
 			}
 		}	
-
-
 	}
 
 	public Celdas[] getSector() {
@@ -80,6 +131,22 @@ public class Sector {
 
 	public void setSector(Celdas[] sectorUno) {
 		this.sector = sectorUno;
+	}
+
+	public Celdas[] getFilaGanadora() {
+		return filaGanadora;
+	}
+
+	public void setFilaGanadora(Celdas[] filaGanadora) {
+		this.filaGanadora = filaGanadora;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 
 }

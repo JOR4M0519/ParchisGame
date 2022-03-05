@@ -56,6 +56,17 @@ public class DesignTablero extends JPanel {
 			} 			
 		}	
 		}
+		for(int x=0;x<4;x++) {
+			for (int i = 0; i <8; i++) {
+				try {
+					Thread.sleep(1000);
+					coordenada.setLocation(tablero.getRecorrido()[x].getFilaGanadora()[i].getX(),tablero.getRecorrido()[x].getFilaGanadora()[i].getY());
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} 
+			}
+		}
+		
 	}
 
 

@@ -3,8 +3,6 @@ public class Tablero {
 	private Dados dados;
 	private Jugador[] jugadores;
 	private Sector[] recorrido;
-	private Sector[] meta;
-
 
 	public Tablero(int[] numJugadores,String[] paises){
 
@@ -18,13 +16,6 @@ public class Tablero {
 		recorrido[1] = new Sector("azul");
 		recorrido[2] = new Sector("rojo");
 		recorrido[3] = new Sector("verde");
-		
-		meta = new Sector[4];
-
-		meta[0] = new Sector("amarillo");
-		meta[1] = new Sector("azul");
-		meta[2] = new Sector("rojo");
-		meta[3] = new Sector("verde");
 
 	}
 	
