@@ -77,8 +77,9 @@ public class DesignTablero extends JPanel {
 		
 		for(int i=0;i<jugador.length;i++) {
 			
+			
 			for(int x=0;x<4;x++) {
-				ImageIcon img = new ImageIcon("./Data/Sombrero_1.png");
+				ImageIcon img = new ImageIcon("./Data/"+i+"_"+(x+1)+".png");
 				JLabel coordenada = new JLabel();
 				coordenada.setBounds(jugador[i].getFicha()[x].getUbicacion().getX(),jugador[i].getFicha()[x].getUbicacion().getY(),25,25);
 				coordenada.setIcon(new ImageIcon(img.getImage()));
