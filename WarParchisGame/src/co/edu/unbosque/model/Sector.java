@@ -18,20 +18,20 @@ public class Sector {
 		int n = 0;
 
 		if(color.equals("amarillo")) {
-			xCor =402;
-			yCor =513;
+			xCor =399;
+			yCor =645;
 			n =1;
 		}else if(color.equals("rojo")) {
-			xCor =254;
-			yCor =137;
+			xCor =250;
+			yCor =3;
 			n=-1;
 		}else if(color.equals("azul")) {
-			xCor =521;
-			yCor =250;
+			xCor =644;
+			yCor =252;
 			n =1;
 		}else if(color.equals("verde")) {
-			xCor =141;
-			yCor =398;
+			xCor =4;
+			yCor =397;
 			n=-1;
 		}
 
@@ -41,19 +41,17 @@ public class Sector {
 
 				if(sectorUno[0]==null) {
 					sectorUno[0]=vector = new Celdas(xCor,yCor);
-				}else if (x>0 && x<=3){
-					yCor=yCor-33*n;
+				}else if (x>0 && x<=7){
+					yCor=yCor-32*n;
 					sectorUno[x]=vector = new Celdas(xCor,yCor);
-				}else if(x>3 && x<=11) {
-					xCor = xCor+30*n;
-					sectorUno[x]=vector = new Celdas(xCor,yCor-20*n);
-				}else if(x>11 && x<=13) {
-					yCor=yCor-80*n;
-					sectorUno[x]=vector = new Celdas(xCor,yCor);
-				}else if(x>13 && x<=16) {
-					xCor = xCor-30*n;
-					sectorUno[x] = vector = new Celdas(xCor,yCor);
+				}else if(x>7 && x<=15) {
+					xCor = xCor+32*n;
+					sectorUno[x]=vector = new Celdas(xCor-11*n,yCor-23*n);
+				}else if(x>15 && x<=16) {
+					yCor=yCor-97*n;
+					sectorUno[x]=vector = new Celdas(xCor-10*n,yCor);
 				}
+
 			}	
 			return;
 		}
@@ -62,18 +60,15 @@ public class Sector {
 
 			if(sectorUno[0]==null) {
 				sectorUno[0]=vector = new Celdas(xCor,yCor);
-			}else if (x>0 && x<=3){
-				xCor=xCor-33*n;
+			}else if (x>0 && x<=7){
+				xCor=xCor-32*n;
 				sectorUno[x]=vector = new Celdas(xCor,yCor);
-			}else if(x>3 && x<=11) {
-				yCor = yCor-30*n;
-				sectorUno[x]=vector = new Celdas(xCor-20*n,yCor);
-			}else if(x>11 && x<=13) {
-				xCor=xCor-80*n;
-				sectorUno[x]=vector = new Celdas(xCor,yCor);
-			}else if(x>13 && x<=16) {
-				yCor = yCor+30*n;
-				sectorUno[x] = vector = new Celdas(xCor,yCor);
+			}else if(x>7 && x<=15) {
+				yCor = yCor-32*n;
+				sectorUno[x]=vector = new Celdas(xCor-20*n,yCor+9*n);
+			}else if(x>15 && x<=16) {
+				xCor=xCor-97*n;
+				sectorUno[x]=vector = new Celdas(xCor+1*n,yCor+8*n);
 			}
 		}	
 
