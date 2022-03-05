@@ -11,7 +11,8 @@ import javax.swing.JLabel;
 
 public class View2 extends JFrame {
 
-	private JPanel contentPane;
+	
+	private DesignTablero tablero;
 
 	/**
 	 * Launch the application.
@@ -36,12 +37,22 @@ public class View2 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //		setBounds(0, 0, 466, 488);
 		setBounds(0, 0, 800, 800);
-		DesignTablero tablero = new DesignTablero();
+		tablero = new DesignTablero();
 		getContentPane().add(tablero);
 		
 		
 	
 	}
+
+	public DesignTablero getTablero() {
+		return tablero;
+	}
+
+	public void setTablero(DesignTablero tablero) {
+		this.tablero = tablero;
+	}
+
+
 	
 	
 

@@ -8,5 +8,6 @@ public class Controller {
 
     public Controller(){
     	view = new View2();
+    	view.getTablero().bucle();
       }
 }

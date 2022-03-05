@@ -35,15 +35,30 @@ public class DesignTablero extends JPanel {
 		fondo.setIcon(new ImageIcon(img.getImage()));
 		add(fondo);
 		
-	for (int i = 0; i < 50; i++) {
-		
-		mover();
-	}
+	
 		
 	}
 	
+	public void bucle() {
+		System.out.println("y");
+		for (int i = 0; i < 50; i++) {
+			System.out.println(i);	 
+			coordenada.setLocation(coordenada.getLocation().x+1, coordenada.getLocation().y+1);
+//			try {
+//				Thread.sleep(1000);
+//				mover();
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} 
+			
+			
+			
+		}
+	}
+	
 	public void mover() {
-		coordenada.setLocation(coordenada.getLocation().x+1, coordenada.getLocation().y+1);
+		
 	}
 	
 	
