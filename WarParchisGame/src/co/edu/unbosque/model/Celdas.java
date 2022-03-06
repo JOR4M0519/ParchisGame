@@ -7,10 +7,8 @@ public class Celdas {
     private boolean seguro;
     
     public Celdas(int x,int y) {
-    	
     	this.x = x;
     	this.y = y;
-    	
     }
     
 	public boolean isSeguro() {
