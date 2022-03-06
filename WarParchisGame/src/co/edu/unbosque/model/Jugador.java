@@ -19,23 +19,23 @@ public class Jugador {
 		switch(pais){
 
 		case "EEUU": 
-			coorX=505;
-			coorY=75;
-			break;
-
-		case "CHINA":
-			coorX=57;
+			coorX=537;
 			coorY=85;
 			break;
 
+		case "CHINA":
+			coorX=81;
+			coorY=81;
+			break;
+
 		case "OTAN":
-			coorX=58;
-			coorY=537;
+			coorX=87;
+			coorY=534;
 			break;
 
 		case "UCRANIA":
-			coorX=509;
-			coorY=530;
+			coorX=536;
+			coorY=535;
 			break;
 		}
 
