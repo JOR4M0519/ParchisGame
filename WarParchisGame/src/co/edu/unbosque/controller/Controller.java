@@ -54,16 +54,16 @@ public class Controller {
 	
 	public void mover(int jugadorJugando,int ficha, int numeroDado) {
 
-		int posicionActual = tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getUbicacionFicha();
-		int jugadorGanar =jugadorJugando-1;
-		int jugadorContador = jugadorJugando-1;
+		int posicionActual = tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getUbicacionFicha();
+		int jugadorGanar =jugadorJugando;
+		int jugadorContador = jugadorJugando;
 		int coorX=0;
 		int coorY=0;
 
 		for(int x=0;x<numeroDado;x++) {
 			try {
 
-				if(posicionActual>tablero.getRecorrido()[jugadorJugando-1].getSector().length-1) {
+				if(posicionActual>tablero.getRecorrido()[jugadorJugando].getSector().length-1) {
 					posicionActual=0;
 					tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].setVuelta(tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getVuelta()+1);
 					jugadorContador = jugadorContador+1;
@@ -99,7 +99,6 @@ public class Controller {
 
 		}
 		tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].setUbicacionFicha(posicionActual);
-		System.out.println(tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getUbicacionFicha());
 	}	
 	
 	public void funcionar() {

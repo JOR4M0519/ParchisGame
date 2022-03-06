@@ -40,7 +40,6 @@ public class DesignTablero extends JPanel {
 				add(fichas[i][x]);
 			}			
 		}
-
 	}
 
 	public JLabel[][] getFichas() {
