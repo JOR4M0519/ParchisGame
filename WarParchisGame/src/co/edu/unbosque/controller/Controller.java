@@ -16,10 +16,10 @@ public class Controller {
 		fachada.getTablero().generarJugadores(Integer.valueOf(JOptionPane.showInputDialog("ingrese el numero de jugadores")));
 		
 		view = new View(fachada.getTablero().getJugadores());
-		view.getTablero().mover(1, 2, 5,fachada.getTablero());
-		view.getTablero().mover(1, 2, 66,fachada.getTablero());
-		view.getTablero().mover(1, 2, 1,fachada.getTablero());
-		view.getTablero().mover(2, 1, 71,fachada.getTablero());
+//		view.getTablero().mover(1, 2, 5,fachada.getTablero());
+//		view.getTablero().mover(1, 2, 66,fachada.getTablero());
+//		view.getTablero().mover(1, 2, 1,fachada.getTablero());
+		view.getTablero().mover(2, 3, 72,fachada.getTablero());
 		funcionar();
 
 	}
