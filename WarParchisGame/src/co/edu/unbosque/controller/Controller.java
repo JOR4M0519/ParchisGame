@@ -35,22 +35,7 @@ public class Controller {
 //		mover(3,4, 62);
 //		mover(1,3, 72);
 		
-		
-<<<<<<< HEAD
-		view = new View(fachada.getTablero().getJugadores());
-//		view.getTablero().mover(1, 2, 5,fachada.getTablero());
-//		view.getTablero().mover(1, 2, 66,fachada.getTablero());
-//		view.getTablero().mover(1, 2, 1,fachada.getTablero());
-		view.getTablero().mover(1, 2, 20,fachada.getTablero());
-	    view.getTablero().mover(1, 2, 5,fachada.getTablero());
-		
-//		view.getTablero().mover(3,4, 10,fachada.getTablero());
-//		view.getTablero().mover(1,4, 3,fachada.getTablero());
-//		view.getTablero().mover(3,4, 62,fachada.getTablero());
-//		view.getTablero().mover(1,3, 72,fachada.getTablero());
-		funcionar();
-=======
->>>>>>> master
+	
 
 	}
 	
