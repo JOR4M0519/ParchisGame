@@ -17,8 +17,9 @@ public class Controller {
 		
 		view = new View(fachada.getTablero().getJugadores());
 		view.getTablero().mover(1, 2, 5,fachada.getTablero());
-		view.getTablero().mover(1, 2, 10,fachada.getTablero());
-//		view.getTablero().mover(2, 1, 10,fachada.getTablero());
+		view.getTablero().mover(1, 2, 66,fachada.getTablero());
+		view.getTablero().mover(1, 2, 1,fachada.getTablero());
+		view.getTablero().mover(2, 1, 71,fachada.getTablero());
 		funcionar();
 
 	}
