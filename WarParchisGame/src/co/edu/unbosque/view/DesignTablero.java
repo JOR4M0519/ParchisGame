@@ -39,29 +39,30 @@ public class DesignTablero extends JPanel {
 
 	}
 
-	public void mover(int jugadorJugando,int ficha,int numeroDado, Tablero tablero) {
+	public void mover(int jugadorJugando,int ficha, int numeroDado, Tablero tablero) {
 
 		int posicionActual = tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getUbicacionFicha();
+		int coorX=0;
+		int coorY=0;
 
 		for(int x=0;x<numeroDado;x++) {
 			try {
 
 				Thread.sleep(1000);
-				if(posicionActual!=4) {
-					posicionActual = posicionActual+1;	
-				}
 
-				jugador[jugadorJugando-1].getFicha()[ficha-1].setUbicacionFicha(posicionActual);
-				int coorX =tablero.getRecorrido()[jugadorJugando-1].getSector()[posicionActual].getX();
-				int coorY =tablero.getRecorrido()[jugadorJugando-1].getSector()[posicionActual].getY();
+				coorX =tablero.getRecorrido()[jugadorJugando-1].getSector()[posicionActual].getX();
+				coorY =tablero.getRecorrido()[jugadorJugando-1].getSector()[posicionActual].getY();
+				posicionActual=posicionActual+1;
+
 				fichas[jugadorJugando-1][ficha-1].setLocation(coorX, coorY);
-
 
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 
 		}
+		jugador[jugadorJugando-1].getFicha()[ficha-1].setUbicacionFicha(posicionActual);
+
 	}
 
 	public void fichasInicio() {
