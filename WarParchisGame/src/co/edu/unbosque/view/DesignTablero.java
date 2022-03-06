@@ -29,7 +29,6 @@ public class DesignTablero extends JPanel {
 		this.jugador = jugador;
 		fichasInicio();
 		
-
 		img = new ImageIcon("./Data/EEUU_1.png");
 		coordenada = new JLabel();
 		coordenada.setBounds(402,513,25,25);
