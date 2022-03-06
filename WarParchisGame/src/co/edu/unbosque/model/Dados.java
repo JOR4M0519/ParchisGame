@@ -7,8 +7,6 @@ public class Dados {
 		this.numeros = numeros;
 	}
 	
-	
-	
 	public int[] generarNumero() {
 		for (int i = 0; i < numeros.length; i++) {
 			numeros[i] = (int) (Math.random()*6+1);

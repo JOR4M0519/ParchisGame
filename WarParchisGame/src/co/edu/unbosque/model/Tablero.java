@@ -9,10 +9,10 @@ public class Tablero {
 	public Tablero(){
 
 		recorrido = new Sector[4];
-		recorrido[0] = new Sector("amarillo");
-		recorrido[1] = new Sector("azul");
-		recorrido[2] = new Sector("rojo");
-		recorrido[3] = new Sector("verde");
+		recorrido[0] = new Sector("azul");
+		recorrido[1] = new Sector("rojo");
+		recorrido[2] = new Sector("verde");
+		recorrido[3] = new Sector("amarillo");
 
 	}
 

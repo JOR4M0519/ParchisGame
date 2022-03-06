@@ -42,20 +42,20 @@ public class Jugador {
 		for (int i = 0; i < 4; i++) {
 
 			switch(i){
-			case 0:ficha[0] = new Ficha(coorX,coorY);
+			case 0:ficha[0] = new Ficha(coorX,coorY,4);
 			break;
 			case 1:
 				coorX=coorX+30;
-				ficha[i] = new Ficha(coorX, coorY);
+				ficha[i] = new Ficha(coorX, coorY,4);
 				coorX=coorX-30;
 				break;
 			case 2:
 				coorY = coorY+30;
-				ficha[i] = new Ficha(coorX, coorY);
+				ficha[i] = new Ficha(coorX, coorY,4);
 				break;
 			case 3:
 				coorX=coorX+30;
-				ficha[i] = new Ficha(coorX, coorY);
+				ficha[i] = new Ficha(coorX, coorY,4);
 				break;
 			}
 
