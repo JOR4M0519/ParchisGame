@@ -66,7 +66,7 @@ public class DesignTablero extends JPanel {
 					posicionActual=0;
 					tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].setVuelta(tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getVuelta()+1);
 					jugadorContador = jugadorContador+1;
-					if(jugadorContador>4) {
+					if(jugadorContador>=4) {
 						jugadorContador=0;
 					}
 				}
