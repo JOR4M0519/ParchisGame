@@ -12,34 +12,32 @@ public class Sector {
 		this.color = color;
 		rellenarArregloDeCoordenadasSector();
 		rellenarArregloDeCoordenadasGanar();
-		
-		
 	}
 
 	public void rellenarArregloDeCoordenadasGanar() {
 		int n=0;
 		int xCor =0;
 		int yCor =0;
-		
-		if(color.equals("amarillo")) {
+
+		if(color.equals("UCRANIA")) {
 			xCor =325;
 			yCor =612;
 			n =1;
-		}else if(color.equals("rojo")) {
+		}else if(color.equals("CHINA")) {
 			xCor =324;
 			yCor =37;
 			n=-1;
-		}else if(color.equals("azul")) {
+		}else if(color.equals("EEUU")) {
 			xCor =611;
 			yCor =326;
 			n =1;
-		}else if(color.equals("verde")) {
+		}else if(color.equals("OTAN")) {
 			xCor =35;
 			yCor =326;
 			n=-1;
 		}
-		
-		if(color.equals("amarillo") || color.equals("rojo")) {
+
+		if(color.equals("UCRANIA") || color.equals("CHINA")) {
 
 			for(int x=0;x<8;x++) {
 
@@ -62,7 +60,7 @@ public class Sector {
 				filaGanadora[x]=new Celdas(xCor,yCor);
 			}
 		}
-		
+
 	}
 
 	public void rellenarArregloDeCoordenadasSector() {
@@ -70,39 +68,59 @@ public class Sector {
 		int yCor =0;
 		int n = 0;
 
-		if(color.equals("amarillo")) {
+		if(color.equals("UCRANIA")) {
 			xCor =399;
 			yCor =645;
 			n =1;
-		}else if(color.equals("rojo")) {
+		}else if(color.equals("CHINA")) {
 			xCor =250;
 			yCor =3;
 			n=-1;
-		}else if(color.equals("azul")) {
+		}else if(color.equals("EEUU")) {
 			xCor =644;
 			yCor =252;
 			n =1;
-		}else if(color.equals("verde")) {
+		}else if(color.equals("OTAN")) {
 			xCor =4;
 			yCor =397;
 			n=-1;
 		}
 
-		if(color.equals("amarillo") || color.equals("rojo")) {
+		if(color.equals("UCRANIA") || color.equals("CHINA")) {
 
 			for(int x=0;x<=16;x++) {
 
 				if(sector[0]==null) {
 					sector[0]=new Celdas(xCor,yCor);
+
+					//Organiza celdas de 0 a 7
 				}else if (x>0 && x<=7){
 					yCor=yCor-32*n;
-					sector[x]=new Celdas(xCor,yCor);
+					//Set Seguro Celda en 4
+					if(x==4) {
+						sector[x]=new Celdas(xCor,yCor);
+						sector[x].setSeguro(true);
+					}else {
+						sector[x]=new Celdas(xCor,yCor);
+					}
+
+					//Organiza celdas de 8 a 15
 				}else if(x>7 && x<=15) {
 					xCor = xCor+32*n;
-					sector[x]=new Celdas(xCor-11*n,yCor-23*n);
+					//Set Seguro Celda en 11
+					if(x==16) {
+						sector[x]=new Celdas(xCor-11*n,yCor-23*n);
+						sector[x].setSeguro(true);
+					}else {
+						sector[x]=new Celdas(xCor-11*n,yCor-23*n);
+					}
+
+					//Organiza celdas de 16
 				}else if(x>15 && x<=16) {
 					yCor=yCor-97*n;
+					//Set Seguro Celda en 16
 					sector[x]=new Celdas(xCor-10*n,yCor);
+					sector[x].setSeguro(true);
 				}
 			}	
 			return;
@@ -114,13 +132,28 @@ public class Sector {
 				sector[0]=new Celdas(xCor,yCor);
 			}else if (x>0 && x<=7){
 				xCor=xCor-32*n;
-				sector[x]=new Celdas(xCor,yCor);
+				//Set seguro de 4
+				if(x==4) {
+					sector[x]=new Celdas(xCor,yCor);
+					sector[x].setSeguro(true);
+				}else {
+					sector[x]=new Celdas(xCor,yCor);
+				}
 			}else if(x>7 && x<=15) {
 				yCor = yCor-32*n;
-				sector[x]=new Celdas(xCor-20*n,yCor+9*n);
+				//Set seguro de 11
+				if(x==11) {
+					sector[x]=new Celdas(xCor-20*n,yCor+9*n);
+					sector[x].setSeguro(true);
+				}else {
+					sector[x]=new Celdas(xCor-20*n,yCor+9*n);
+				}
+				
 			}else if(x>15 && x<=16) {
 				xCor=xCor-97*n;
+				//Set seguro de 16
 				sector[x]=new Celdas(xCor+1*n,yCor+8*n);
+				sector[x].setSeguro(true);
 			}
 		}	
 	}

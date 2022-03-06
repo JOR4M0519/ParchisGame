@@ -9,15 +9,14 @@ public class Tablero {
 	public Tablero(){
 
 		recorrido = new Sector[4];
-		recorrido[0] = new Sector("azul");
-		recorrido[1] = new Sector("rojo");
-		recorrido[2] = new Sector("verde");
-		recorrido[3] = new Sector("amarillo");
+		recorrido[0] = new Sector("EEUU");
+		recorrido[1] = new Sector("CHINA");
+		recorrido[2] = new Sector("OTAN");
+		recorrido[3] = new Sector("UCRANIA");
 
 	}
 
 	public void generarJugadores(int numeroJugadores) {
-		Jugador jugador;
 		jugadores = new Jugador[numeroJugadores];
 		String pais="";
 
@@ -34,7 +33,7 @@ public class Tablero {
 			break;
 			}
 
-			jugadores[i]= jugador = new Jugador(pais);
+			jugadores[i]= new Jugador(pais);
 
 		}	
 	}

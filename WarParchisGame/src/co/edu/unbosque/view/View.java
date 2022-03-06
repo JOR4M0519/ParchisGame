@@ -1,19 +1,8 @@
 package co.edu.unbosque.view;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import co.edu.unbosque.model.Jugador;
-
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class View extends JFrame {
