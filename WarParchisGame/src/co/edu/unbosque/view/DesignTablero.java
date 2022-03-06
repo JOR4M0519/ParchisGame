@@ -8,10 +8,6 @@ public class DesignTablero extends JPanel {
 	private JLabel[][] fichas;
 	private JLabel fondo;
 	private ImageIcon img;
-<<<<<<< HEAD
-=======
-	private String[][] coordenadas;
->>>>>>> master
 
 	/**
 	 * Create the panel.
@@ -27,7 +23,6 @@ public class DesignTablero extends JPanel {
 		add(fondo);
 
 	}
-	
 
 	public void fichasInicio(int[][] coordenadasX, int[][] coordenadasY,int numJugadores) {
 
@@ -47,20 +42,6 @@ public class DesignTablero extends JPanel {
 		}
 
 	}
-
-
-	
-
-
-	public String[][] getCoordenadas() {
-		return coordenadas;
-	}
-
-
-	public void setCoordenadas(String[][] coordenadas) {
-		this.coordenadas = coordenadas;
-	}
-
 
 	public JLabel[][] getFichas() {
 		return fichas;

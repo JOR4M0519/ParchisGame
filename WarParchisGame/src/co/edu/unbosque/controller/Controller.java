@@ -1,9 +1,6 @@
 package co.edu.unbosque.controller;
-import java.awt.Color;
 
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import co.edu.unbosque.model.Celdas;
 import co.edu.unbosque.model.Tablero;
 import co.edu.unbosque.view.View;
 
