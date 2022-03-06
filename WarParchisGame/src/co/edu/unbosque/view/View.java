@@ -30,8 +30,8 @@ public class View extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public View(Jugador[] jugador) {
-		initiComponents(jugador);
+	public View(int[][] coordenadasX, int[][] coordenadasY, int numJugadores) {
+		initiComponents(coordenadasX,coordenadasY, numJugadores);
 		
 		
 		setVisible(true);
@@ -41,9 +41,9 @@ public class View extends JFrame {
 
 	}
 	
-	public void initiComponents(Jugador[] jugador) {
+	public void initiComponents(int[][] coordenadasX, int[][] coordenadasY, int numJugadores) {
 		panelBotones = new PanelBotones();
-		tablero = new DesignTablero(jugador);
+		tablero = new DesignTablero(coordenadasX,coordenadasY, numJugadores);
 		
 		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
