@@ -30,6 +30,16 @@ public class DesignTablero extends JPanel {
 		setLayout(null);
 		this.jugador = jugador;
 		fichasInicio();
+<<<<<<< HEAD
+=======
+		
+		img = new ImageIcon("./Data/EEUU_1.png");
+		coordenada = new JLabel();
+		coordenada.setBounds(402,513,25,25);
+		coordenada.setIcon(new ImageIcon(img.getImage()));
+		coordenada.setBackground(Color.BLACK);
+		add(coordenada);
+>>>>>>> 1b4861bdb17bd6971fd2ee8efa88bd5252952bb6
 
 		img = new ImageIcon("./Data/Table.png");
 		fondo = new JLabel();

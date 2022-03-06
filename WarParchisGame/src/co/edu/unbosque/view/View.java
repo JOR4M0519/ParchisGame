@@ -3,6 +3,9 @@ package co.edu.unbosque.view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,6 +20,7 @@ public class View extends JFrame {
 
 
 	private DesignTablero tablero;
+	private PanelBotones panelBotones;
 
 	/**
 	 * Launch the application.
@@ -29,16 +33,33 @@ public class View extends JFrame {
 	public View(Jugador[] jugador) {
 		initiComponents(jugador);
 		
+		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 800, 713);
+		setBounds(0, 0, 1000, 713);
 		setLocationRelativeTo(null);
 
 	}
 	
 	public void initiComponents(Jugador[] jugador) {
+		panelBotones = new PanelBotones();
 		tablero = new DesignTablero(jugador);
-		getContentPane().add(tablero);
+		
+		setLayout(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.BOTH;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.weightx = 0.01;
+		c.weighty = 0;
+		add(tablero, c);
+		
+		c.gridy = 0;
+		c.gridx = 1;
+		c.weightx = 0;
+		c.weighty = 0;
+		add(panelBotones, c);
+		
 	}
 
 	   public String inputWindows(String info, String title, int messageType) {
