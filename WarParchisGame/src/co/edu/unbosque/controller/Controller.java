@@ -1,71 +1,112 @@
 package co.edu.unbosque.controller;
+import java.awt.Color;
+
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import co.edu.unbosque.model.Celdas;
-import co.edu.unbosque.model.Fachada;
 import co.edu.unbosque.model.Tablero;
 import co.edu.unbosque.view.View;
 
 public class Controller {
 
 	private View view;
-	private Fachada fachada;
+	private Tablero tablero;
 
 	public Controller(){
 		
-		fachada = new Fachada();
-		fachada.getTablero().generarJugadores(Integer.valueOf(JOptionPane.showInputDialog("ingrese el numero de jugadores")));
+		tablero = new Tablero();
+		tablero.generarJugadores(Integer.valueOf(JOptionPane.showInputDialog("ingrese el numero de jugadores")));
 		
-<<<<<<< HEAD
-		view = new View(fachada.getTablero().getJugadores(), fachada.getTablero().getJugadores().length);
 		
-		fichasInicio();
 		
-//		view.getTablero().mover(1, 2, 5,fachada.getTablero());
-//		view.getTablero().mover(1, 2, 10,fachada.getTablero());
-//		view.getTablero().mover(3, 1, 10,fachada.getTablero());
-//		funcionar();
-=======
-		view = new View(fachada.getTablero().getJugadores());
-//		view.getTablero().mover(1, 2, 5,fachada.getTablero());
-//		view.getTablero().mover(1, 2, 66,fachada.getTablero());
-//		view.getTablero().mover(1, 2, 1,fachada.getTablero());
-		view.getTablero().mover(2, 3, 72,fachada.getTablero());
-		funcionar();
->>>>>>> 8ee5f0f3aa0f347b060d7f61737d8dff919111ef
+		
+		view = new View(generarCoordenadasInicio("X"),generarCoordenadasInicio("Y"), tablero.getJugadores().length);
+		
+		mover(3, 4, 20);
+		mover(3, 4, 5);
+		
+//		mover(3, 4, 5);
+//		mover(3, 4, 5);
+//		mover(3, 4, 5);
+//		mover(3, 4, 5);
 
-	}
+//		mover(3,4, 10);
+//		mover(1,4, 3);
+//		mover(3,4, 62);
+//		mover(1,3, 72);
+		
+		
 
-	public void fichasInicio() {
-		
-		view.getTablero().remove(view.getTablero().getFondo());
-		System.out.println(fachada.getTablero().getJugadores().length);
-		for(int i=0;i<fachada.getTablero().getJugadores().length;i++) {
-			for(int j=0;j<4;j++) {
-				String url = ("./Data/"+i+"_"+(j+1)+".png");
-				//infoJugador
-				view.getTablero().generarFichasInicio(i,j, url, 
-						fachada.getTablero().getJugadores()[i].getFicha()[j].getUbicacion().getX(),
-						fachada.getTablero().getJugadores()[i].getFicha()[j].getUbicacion().getY());
-			}			
-		}	
-		view.getTablero().generarFondo();
-		
-//		view.getTablero().remove(view.getTablero().getFondo());
-//		for(int x=0;x<view.getTablero().getFichas().length;x++) {
-//			for(int i=0;i<view.getTablero().getFichas()[x].length;i++) {
-//				view.getTablero().add(view.getTablero().getFichas()[x][i]);
-//			}	
-//		}
-//		view.getTablero().add(view.getTablero().getFondo());
-//		
-		
-//		view.getTablero().agregarFichas();
-		
 	}
 	
+	public int[][] generarCoordenadasInicio(String eje) {
+		int[][] coordenadasX = new int[tablero.getJugadores().length][4];
+		int[][] coordenadasY = new int[tablero.getJugadores().length][4];
+		
+		for (int i = 0; i < tablero.getJugadores().length; i++) {
+			for (int j = 0; j < 4; j++) {
+				coordenadasX[i][j] = tablero.getJugadores()[i].getFicha()[j].getUbicacion().getX();
+				coordenadasY[i][j] = tablero.getJugadores()[i].getFicha()[j].getUbicacion().getY();
+			}
+		}
+		if(eje.equals("X")) {
+			return coordenadasX;
+		}
+		return coordenadasY; 
+	}
+	
+	public void mover(int jugadorJugando,int ficha, int numeroDado) {
+
+		int posicionActual = tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getUbicacionFicha();
+		int jugadorGanar =jugadorJugando-1;
+		int jugadorContador = jugadorJugando-1;
+		int coorX=0;
+		int coorY=0;
+
+		for(int x=0;x<numeroDado;x++) {
+			try {
+
+				if(posicionActual>tablero.getRecorrido()[jugadorJugando-1].getSector().length-1) {
+					posicionActual=0;
+					tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].setVuelta(tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getVuelta()+1);
+					jugadorContador = jugadorContador+1;
+					if(jugadorContador>=4) {
+						jugadorContador=0;
+					}
+				}
+				
+				if(tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getVuelta()==4) {
+				
+					Thread.sleep(700);
+					coorX =tablero.getRecorrido()[jugadorGanar].getFilaGanadora()[posicionActual].getX();
+					coorY =tablero.getRecorrido()[jugadorGanar].getFilaGanadora()[posicionActual].getY();
+					posicionActual=posicionActual+1;
+					if(posicionActual>tablero.getRecorrido()[jugadorGanar].getFilaGanadora().length-1) {
+						System.out.println("Ganaste perra");
+						view.getTablero().getFichas()[jugadorJugando-1][ficha-1].setLocation(1000, 1000);
+					}else {
+						view.getTablero().getFichas()[jugadorJugando-1][ficha-1].setLocation(coorX, coorY);
+					}
+						
+				}else {
+					Thread.sleep(700);
+					coorX =tablero.getRecorrido()[jugadorContador].getSector()[posicionActual].getX();
+					coorY =tablero.getRecorrido()[jugadorContador].getSector()[posicionActual].getY();
+					posicionActual=posicionActual+1;
+					view.getTablero().getFichas()[jugadorJugando-1][ficha-1].setLocation(coorX, coorY);	
+				}
+
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+		}
+		tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].setUbicacionFicha(posicionActual);
+		System.out.println(tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getUbicacionFicha());
+	}	
+	
 	public void funcionar() {
-
-
+		
 	}
 }
 
