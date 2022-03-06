@@ -19,7 +19,13 @@ public class Controller {
 //		view.getTablero().mover(1, 2, 5,fachada.getTablero());
 //		view.getTablero().mover(1, 2, 66,fachada.getTablero());
 //		view.getTablero().mover(1, 2, 1,fachada.getTablero());
-		view.getTablero().mover(2, 3, 72,fachada.getTablero());
+		view.getTablero().mover(1, 2, 20,fachada.getTablero());
+	    view.getTablero().mover(1, 2, 5,fachada.getTablero());
+		
+//		view.getTablero().mover(3,4, 10,fachada.getTablero());
+//		view.getTablero().mover(1,4, 3,fachada.getTablero());
+//		view.getTablero().mover(3,4, 62,fachada.getTablero());
+//		view.getTablero().mover(1,3, 72,fachada.getTablero());
 		funcionar();
 
 	}

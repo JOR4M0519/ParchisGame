@@ -20,7 +20,6 @@ public class DesignTablero extends JPanel {
 	private Jugador[] jugador;
 	private JLabel fondo;
 	private ImageIcon img;
-	private JLabel coordenada;
 
 	/**
 	 * Create the panel.
