@@ -15,6 +15,7 @@ public class Controller {
 		fachada = new Fachada();
 		fachada.getTablero().generarJugadores(Integer.valueOf(JOptionPane.showInputDialog("ingrese el numero de jugadores")));
 		
+<<<<<<< HEAD
 		view = new View(fachada.getTablero().getJugadores(), fachada.getTablero().getJugadores().length);
 		
 		fichasInicio();
@@ -23,6 +24,14 @@ public class Controller {
 //		view.getTablero().mover(1, 2, 10,fachada.getTablero());
 //		view.getTablero().mover(3, 1, 10,fachada.getTablero());
 //		funcionar();
+=======
+		view = new View(fachada.getTablero().getJugadores());
+		view.getTablero().mover(1, 2, 5,fachada.getTablero());
+		view.getTablero().mover(1, 2, 66,fachada.getTablero());
+		view.getTablero().mover(1, 2, 1,fachada.getTablero());
+		view.getTablero().mover(2, 1, 71,fachada.getTablero());
+		funcionar();
+>>>>>>> 8ee5f0f3aa0f347b060d7f61737d8dff919111ef
 
 	}
 

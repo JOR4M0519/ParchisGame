@@ -5,11 +5,13 @@ public  class Ficha extends Habilidades{
 	private Celdas ubicacion;
 	private String tipoFicha;
 	private int ubicacionFicha;
+	private int vuelta;
 
 	
-	public Ficha(int x, int y,int ubicacionFicha) {
+	public Ficha(int x, int y,int ubicacionFicha,int vuelta) {
 		this.ubicacion = new Celdas(x, y);
 		this.ubicacionFicha = ubicacionFicha;
+		this.vuelta = vuelta;
 	}
 	
 
@@ -49,4 +51,14 @@ public  class Ficha extends Habilidades{
 		this.ubicacionFicha = ubicacionFicha;
 	}
 
+
+	public int getVuelta() {
+		return vuelta;
+	}
+
+
+	public void setVuelta(int vuelta) {
+		this.vuelta = vuelta;
+	}
+	
 }

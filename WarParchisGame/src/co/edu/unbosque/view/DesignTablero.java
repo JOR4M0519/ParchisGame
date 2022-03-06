@@ -54,19 +54,43 @@ public class DesignTablero extends JPanel {
 	public void mover(int jugadorJugando,int ficha, int numeroDado, Tablero tablero) {
 
 		int posicionActual = tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getUbicacionFicha();
+		int jugadorGanar =jugadorJugando-1;
+		int jugadorContador = jugadorJugando-1;
 		int coorX=0;
 		int coorY=0;
 
 		for(int x=0;x<numeroDado;x++) {
 			try {
 
-				Thread.sleep(1000);
-
-				coorX =tablero.getRecorrido()[jugadorJugando-1].getSector()[posicionActual].getX();
-				coorY =tablero.getRecorrido()[jugadorJugando-1].getSector()[posicionActual].getY();
-				posicionActual=posicionActual+1;
-
-				fichas[jugadorJugando-1][ficha-1].setLocation(coorX, coorY);
+				if(posicionActual>tablero.getRecorrido()[jugadorJugando-1].getSector().length-1) {
+					posicionActual=0;
+					tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].setVuelta(tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getVuelta()+1);
+					jugadorContador = jugadorContador+1;
+					if(jugadorContador>4) {
+						jugadorContador=0;
+					}
+				}
+				
+				if(tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getVuelta()==4) {
+				
+					Thread.sleep(700);
+					coorX =tablero.getRecorrido()[jugadorGanar].getFilaGanadora()[posicionActual].getX();
+					coorY =tablero.getRecorrido()[jugadorGanar].getFilaGanadora()[posicionActual].getY();
+					posicionActual=posicionActual+1;
+					if(posicionActual>tablero.getRecorrido()[jugadorGanar].getFilaGanadora().length-1) {
+						System.out.println("Ganaste perra");
+						fichas[jugadorJugando-1][ficha-1].setLocation(1000, 1000);
+					}else {
+						fichas[jugadorJugando-1][ficha-1].setLocation(coorX, coorY);
+					}
+						
+				}else {
+					Thread.sleep(700);
+					coorX =tablero.getRecorrido()[jugadorContador].getSector()[posicionActual].getX();
+					coorY =tablero.getRecorrido()[jugadorContador].getSector()[posicionActual].getY();
+					posicionActual=posicionActual+1;
+					fichas[jugadorJugando-1][ficha-1].setLocation(coorX, coorY);	
+				}
 
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -115,10 +139,17 @@ public class DesignTablero extends JPanel {
 				coordenada.setBounds(jugador[i].getFicha()[x].getUbicacion().getX(),jugador[i].getFicha()[x].getUbicacion().getY(),25,25);
 				coordenada.setIcon(new ImageIcon(img.getImage()));
 				coordenada.setBackground(Color.BLACK);
+<<<<<<< HEAD
 				fichas[i][x] = coordenada;	
 				add(fichas[i][x]);
 			}			
 		}
+=======
+				fichas[i][x] = coordenada;
+				add(fichas[i][x]);
+			}			
+		}	
+>>>>>>> 8ee5f0f3aa0f347b060d7f61737d8dff919111ef
 	}
 
 
