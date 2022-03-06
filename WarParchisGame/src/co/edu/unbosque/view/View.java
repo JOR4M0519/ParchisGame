@@ -30,8 +30,8 @@ public class View extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public View(Jugador[] jugador) {
-		initiComponents(jugador);
+	public View(Jugador[] jugador, int numJugadores) {
+		initiComponents(jugador, numJugadores);
 		
 		
 		setVisible(true);
@@ -41,9 +41,9 @@ public class View extends JFrame {
 
 	}
 	
-	public void initiComponents(Jugador[] jugador) {
+	public void initiComponents(Jugador[] jugador, int numJugadores) {
 		panelBotones = new PanelBotones();
-		tablero = new DesignTablero(jugador);
+		tablero = new DesignTablero(jugador, numJugadores);
 		
 		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();

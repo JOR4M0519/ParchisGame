@@ -20,16 +20,20 @@ public class DesignTablero extends JPanel {
 	private Jugador[] jugador;
 	private JLabel fondo;
 	private ImageIcon img;
-	private JLabel coordenada;
+	private int numJugadores;
 
 	/**
 	 * Create the panel.
 	 */
-	public DesignTablero(Jugador[] jugador) {
-
+	public DesignTablero(Jugador[] jugador,int numJugadores) {
+		
 		setLayout(null);
 		this.jugador = jugador;
-		fichasInicio();
+		this.numJugadores = numJugadores;
+		System.out.println("Numero jugadores: "+numJugadores);
+		fichas = new JLabel[numJugadores][4];
+		
+//		fichasInicio();
 
 		img = new ImageIcon("./Data/Table.png");
 		fondo = new JLabel();
@@ -39,6 +43,14 @@ public class DesignTablero extends JPanel {
 
 	}
 
+	public void generarFondo() {
+		img = new ImageIcon("./Data/Table.png");
+		fondo = new JLabel();
+		fondo.setBounds(0,0,675,675);
+		fondo.setIcon(new ImageIcon(img.getImage()));
+		add(fondo);
+	}
+	
 	public void mover(int jugadorJugando,int ficha, int numeroDado, Tablero tablero) {
 
 		int posicionActual = tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getUbicacionFicha();
@@ -65,6 +77,32 @@ public class DesignTablero extends JPanel {
 
 	}
 
+	public void generarFichasInicio(int numJugador, int celdas,String url, int x, int y){
+//		ImageIcon img = new ImageIcon(url);
+		JLabel coordenada = new JLabel();
+		System.out.println(x + " - "+y);
+		coordenada.setBounds(x,y,25,25);
+		coordenada.setIcon(new ImageIcon(new ImageIcon(url).getImage()));
+		coordenada.setBackground(Color.BLACK);
+		fichas[numJugador][celdas] = coordenada;
+		add(coordenada);
+
+	}
+	
+	public void agregarFichas() {
+		remove(fondo);
+		for(int j=0;j<fichas.length;j++) {
+			for(int i=0;i<fichas[j].length;i++) {
+				add(fichas[j][i]);
+				System.out.println(fichas[j][i].getBackground());
+				
+				System.out.println("#j:"+j +" #i:" +i);
+				
+			}	
+		}
+		add(fondo);
+	}
+	
 	public void fichasInicio() {
 
 		fichas = new JLabel[jugador.length][4];
@@ -77,17 +115,17 @@ public class DesignTablero extends JPanel {
 				coordenada.setBounds(jugador[i].getFicha()[x].getUbicacion().getX(),jugador[i].getFicha()[x].getUbicacion().getY(),25,25);
 				coordenada.setIcon(new ImageIcon(img.getImage()));
 				coordenada.setBackground(Color.BLACK);
-				fichas[i][x] = coordenada;		
+				fichas[i][x] = coordenada;	
+				add(fichas[i][x]);
 			}			
 		}
-
-		for(int x=0;x<fichas.length;x++) {
-			for(int i=0;i<fichas[x].length;i++) {
-				add(fichas[x][i]);
-			}	
-		}	
 	}
 
+
+	
+	public JLabel[][] getFichas() {
+		return fichas;
+	}
 
 	public JLabel getFondo() {
 		return fondo;
