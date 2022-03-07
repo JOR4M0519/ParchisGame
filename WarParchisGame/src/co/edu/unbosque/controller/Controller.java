@@ -20,8 +20,6 @@ public class Controller {
 
 		view = new View(generarCoordenadasInicio("X"),generarCoordenadasInicio("Y"), tablero.getJugadores().length);
          
-		boolean salir = salirDeCelda();
-		
 		
 //		for(int j =1;j<=50;j++) {
 //			mover((int) (Math.random()*4+0),(int) (Math.random()*4+0),(int)(Math.random()*30+1));
