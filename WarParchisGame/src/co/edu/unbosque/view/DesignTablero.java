@@ -24,7 +24,6 @@ public class DesignTablero extends JPanel {
 		add(fondo);
 
 	}
-	
 
 	public void fichasInicio(int[][] coordenadasX, int[][] coordenadasY,int numJugadores) {
 
@@ -42,7 +41,6 @@ public class DesignTablero extends JPanel {
 				add(fichas[i][x]);
 			}			
 		}
-
 	}
 
 	public JLabel[][] getFichas() {

@@ -15,47 +15,52 @@ public class Jugador {
 	public void generarFichas() {
 		int coorX=0;
 		int coorY=0;
+		int idPais=0;
 
 		switch(pais){
 
 		case "EEUU": 
 			coorX=537;
 			coorY=85;
+			idPais=0;
 			break;
 
 		case "CHINA":
 			coorX=81;
 			coorY=81;
+			idPais=1;
 			break;
 
 		case "OTAN":
 			coorX=87;
 			coorY=534;
+			idPais=2;
 			break;
 
 		case "UCRANIA":
 			coorX=536;
 			coorY=535;
+			idPais=3;
 			break;
 		}
 
 		for (int i = 0; i < 4; i++) {
 
 			switch(i){
-			case 0:ficha[0] = new Ficha(coorX,coorY,4,0);
+			case 0:ficha[0] = new Ficha(coorX,coorY,4,idPais,0);
 			break;
 			case 1:
 				coorX=coorX+30;
-				ficha[i] = new Ficha(coorX, coorY,4,0);
+				ficha[i] = new Ficha(coorX, coorY,4,idPais,0);
 				coorX=coorX-30;
 				break;
 			case 2:
 				coorY = coorY+30;
-				ficha[i] = new Ficha(coorX, coorY,4,0);
+				ficha[i] = new Ficha(coorX, coorY,4,idPais,0);
 				break;
 			case 3:
 				coorX=coorX+30;
-				ficha[i] = new Ficha(coorX, coorY,4,0);
+				ficha[i] = new Ficha(coorX, coorY,4,idPais,0);
 				break;
 			}
 
