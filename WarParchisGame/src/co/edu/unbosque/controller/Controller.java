@@ -19,6 +19,11 @@ public class Controller {
 		fichasURL = new ArrayList<>();
 
 		view = new View(generarCoordenadasInicio("X"),generarCoordenadasInicio("Y"), tablero.getJugadores().length);
+	
+		for(int j =1;j<=50;j++) {
+            mover((int) (Math.random()*3+0),(int) (Math.random()*3+0),(int)(Math.random()*30+1));
+        }
+		
 	}
 
 	public void encadenarFicha(int jugadorJugando) {
@@ -35,9 +40,9 @@ public class Controller {
 	}
 
 	public boolean preguntarComerFicha(int jugadorJugando,int ficha, int numeroDado) {
-		int posicionActual = tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getPosicionFicha();
+		int posicionActual = tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPosicionFicha();
 		//Muestra el numero de sectores que recorre hasta dar la vuelta
-		int sectorActualGanar = tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getVuelta();
+		int sectorActualGanar = tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getVuelta();
 
 		if((posicionActual+numeroDado) <=16) {
 			posicionActual = posicionActual+numeroDado;
@@ -47,10 +52,10 @@ public class Controller {
 		boolean validacion = false;
 		if(posicionActual != 4 && posicionActual != 11 && posicionActual !=16) {
 			for (int i = 0; i < tablero.getJugadores().length; i++) {
-				if(i != jugadorJugando-1) {
+				if(i != jugadorJugando) {
 					for (int j = 0; j < tablero.getJugadores()[i].getFicha().length; j++) {
 						if(posicionActual == tablero.getJugadores()[i].getFicha()[j].getPosicionFicha()
-								&& (sectorActualGanar+jugadorJugando-1) == (tablero.getJugadores()[i].getFicha()[j].getVuelta()+i)){
+								&& (sectorActualGanar+jugadorJugando) == (tablero.getJugadores()[i].getFicha()[j].getVuelta()+i)){
 
 							fichasURL.add(view.getTablero().getFichas()[i][j].getIcon().toString());
 							validacion = true;
