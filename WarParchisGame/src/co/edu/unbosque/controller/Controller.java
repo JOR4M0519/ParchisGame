@@ -19,7 +19,7 @@ public class Controller {
 		fichasURL = new ArrayList<>();
 
 		view = new View(generarCoordenadasInicio("X"),generarCoordenadasInicio("Y"), tablero.getJugadores().length);
-		
+
 		
 //		for(int j =1;j<=50;j++) {
 //			mover((int) (Math.random()*4+0),(int) (Math.random()*4+0),(int)(Math.random()*30+1));
