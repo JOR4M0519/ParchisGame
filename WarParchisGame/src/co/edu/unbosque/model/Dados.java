@@ -1,17 +1,18 @@
 package co.edu.unbosque.model;
 
 public class Dados {
-	private int[] numeros;
+	private int[] numeros = new int[2];
 	
-	public Dados(int[] numeros) {
-		this.numeros = numeros;
+	public Dados() {
+		numeros[0]=0;
+		numeros[1]=0;
 	}
 	
-	public int[] generarNumero() {
+	public void generarNumero() {
 		for (int i = 0; i < numeros.length; i++) {
 			numeros[i] = (int) (Math.random()*6+1);
 		}
-		return numeros;
+	
 	}
 
 	public int[] getNumeros() {
