@@ -9,6 +9,7 @@ public class Tablero {
 	public Tablero(){
 
 		recorrido = new Sector[4];
+		dados= new Dados();
 		recorrido[0] = new Sector("EEUU");
 		recorrido[1] = new Sector("CHINA");
 		recorrido[2] = new Sector("OTAN");

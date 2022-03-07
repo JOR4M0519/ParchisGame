@@ -1,26 +1,59 @@
 package co.edu.unbosque.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JOptionPane;
 import co.edu.unbosque.model.Tablero;
 import co.edu.unbosque.view.View;
 
-public class Controller {
+public class Controller implements ActionListener {
 
 	private View view;
 	private Tablero tablero;
 	private ArrayList<String> fichasURL;
 
+
 	public Controller(){
 
 		tablero = new Tablero();
-		tablero.generarJugadores(Integer.valueOf(JOptionPane.showInputDialog("ingrese el numero de jugadores")));
+		tablero.generarJugadores(Integer.valueOf(JOptionPane.showInputDialog("Ingrese el numero de jugadores")));
 		fichasURL = new ArrayList<>();
 
 		view = new View(generarCoordenadasInicio("X"),generarCoordenadasInicio("Y"), tablero.getJugadores().length);
+		oyentes();
 	}
-
+	
+	public void oyentes(){
+		view.getPanelBotones().getTirarDados().addActionListener(this);
+		view.getPanelBotones().getFicha1().addActionListener(this);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		String c = e.getActionCommand();
+		
+		if(c.equals("TIRAR_DADOS")) {
+			
+			tablero.getDados().generarNumero();
+			int dado1= tablero.getDados().getNumeros()[0];
+			int dado2= tablero.getDados().getNumeros()[1];
+			view.getPanelBotones().cambiarDado(dado1, dado2);
+		
+		}
+		if(c.equals("FICHA1")) {
+			 	
+			mover(0,0,tablero.getDados().getNumeros()[0]);
+		}
+		
+		
+	}
+	
+	
+	
 	public void encadenarFicha(int jugadorJugando) {
 		for(int i=0;i<fichasURL.size();i++) {
 			for(int j=0;j<tablero.getJugadores().length;j++) {
@@ -33,6 +66,9 @@ public class Controller {
 
 		}
 	}
+	
+	
+	
 
 	public boolean preguntarComerFicha(int jugadorJugando,int ficha, int numeroDado) {
 		int posicionActual = tablero.getJugadores()[jugadorJugando-1].getFicha()[ficha-1].getPosicionFicha();
@@ -152,5 +188,7 @@ public class Controller {
 	public void funcionar() {
 
 	}
+
+	
 }
 
