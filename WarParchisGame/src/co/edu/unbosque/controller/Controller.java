@@ -19,7 +19,10 @@ public class Controller {
 		fichasURL = new ArrayList<>();
 
 		view = new View(generarCoordenadasInicio("X"),generarCoordenadasInicio("Y"), tablero.getJugadores().length);
-
+         
+		boolean salir = salirDeCelda();
+		
+		
 //		for(int j =1;j<=50;j++) {
 //			mover((int) (Math.random()*4+0),(int) (Math.random()*4+0),(int)(Math.random()*30+1));
 //		}
@@ -42,6 +45,13 @@ public class Controller {
 
 	}
 
+
+	public boolean salirDeCelda(int numDadoUno,int numDadoDos) {
+        if(numDadoUno==numDadoDos) {
+        	return true;
+        }
+        return false;
+	}
 
 
 	public void lanzarDado() {
