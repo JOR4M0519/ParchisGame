@@ -4,13 +4,14 @@ public  class Ficha extends Habilidades{
 	
 	private Celdas ubicacion;
 	private String tipoFicha;
-	private int ubicacionFicha;
+	private int posicionFicha,paisEnDondeEstaAhora;
 	private int vuelta;
 
 	
-	public Ficha(int x, int y,int ubicacionFicha,int vuelta) {
+	public Ficha(int x, int y,int posicionFicha,int paisEnDondeEstaAhora,int vuelta) {
 		this.ubicacion = new Celdas(x, y);
-		this.ubicacionFicha = ubicacionFicha;
+		this.posicionFicha = posicionFicha;
+		this.paisEnDondeEstaAhora = paisEnDondeEstaAhora;
 		this.vuelta = vuelta;
 	}
 	
@@ -41,21 +42,29 @@ public  class Ficha extends Habilidades{
 		this.tipoFicha = tipoFicha;
 	}
 
-
-	public int getUbicacionFicha() {
-		return ubicacionFicha;
+	public int getPosicionFicha() {
+		return posicionFicha;
 	}
 
 
-	public void setUbicacionFicha(int ubicacionFicha) {
-		this.ubicacionFicha = ubicacionFicha;
+	public void setPosicionFicha(int posicionFicha) {
+		this.posicionFicha = posicionFicha;
+	}
+
+
+	public int getPaisEnDondeEstaAhora() {
+		return paisEnDondeEstaAhora;
+	}
+
+
+	public void setPaisEnDondeEstaAhora(int paisEnDondeEstaAhora) {
+		this.paisEnDondeEstaAhora = paisEnDondeEstaAhora;
 	}
 
 
 	public int getVuelta() {
 		return vuelta;
 	}
-
 
 	public void setVuelta(int vuelta) {
 		this.vuelta = vuelta;
