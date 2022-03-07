@@ -25,7 +25,7 @@ public class View extends JFrame {
 		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 713);
+		setBounds(0, 0, 1000, 705);
 		setLocationRelativeTo(null);
 
 	}
@@ -65,8 +65,8 @@ public class View extends JFrame {
 		return tablero;
 	}
 
-	public void setTablero(DesignTablero tablero) {
-		this.tablero = tablero;
+	public PanelBotones getPanelBotones() {
+		return panelBotones;
 	}
 
 
