@@ -20,36 +20,34 @@ public class Controller {
 
 		view = new View(generarCoordenadasInicio("X"),generarCoordenadasInicio("Y"), tablero.getJugadores().length);
 
+
+		//		for(int j =1;j<=50;j++) {
+		//			mover((int) (Math.random()*4+0),(int) (Math.random()*4+0),(int)(Math.random()*30+1));
+		//		}		
 		
-//		for(int j =1;j<=50;j++) {
-//			mover((int) (Math.random()*4+0),(int) (Math.random()*4+0),(int)(Math.random()*30+1));
-//		}
-
-		//				mover(3,2,21);
-		//				mover(0,0,4);
-
-						mover(0,0,4);
-						mover(3,2,21);
-						mover(0,2,4);
-						
-						
-
-		//		mover(1,2,9);
-		//		mover(1,3,9);
-		//		mover(0,3,20);
-		//		mover(0,3,6);
-		//		mover(1,3,9);
-		//		mover(0,3,6);
-
+		/**verificar si el jugador esta en la base y si puede salir,
+		 * se pone en el inicio cuando 
+		 * 
+		 */
+		
+		
+		
+		
+		
+		
+		
+		mover(0,0,4);
+		mover(3,2,21);
+		mover(0,2,4);
 
 	}
 
 
 	public boolean salirDeCelda(int numDadoUno,int numDadoDos) {
-        if(numDadoUno==numDadoDos) {
-        	return true;
-        }
-        return false;
+		if(numDadoUno==numDadoDos) {
+			return true;
+		}
+		return false;
 	}
 
 
@@ -63,10 +61,10 @@ public class Controller {
 			for(int j=0;j<tablero.getJugadores().length;j++) {
 				for(int k=0;k<4;k++) {
 					if(view.getTablero().getFichas()[j][k].getIcon().toString().equals(fichasURL.get(i))) {
-						
+
 						//Agregar mover ficha enemiga a la prision
-						
-						
+
+
 						tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].setPosicionFicha(-1);
 						tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].setPaisEnDondeEstaAhora(fichaAcomer[0]);
 						view.getTablero().remove(view.getTablero().getFichas()[j][k]);
@@ -119,7 +117,7 @@ public class Controller {
 
 					if(posicionActual == tablero.getJugadores()[i].getFicha()[j].getPosicionFicha()
 							&& (paisEnDondeEsta) == (tablero.getJugadores()[i].getFicha()[j].getPaisEnDondeEstaAhora())){
-						
+
 						fichasURL.add(view.getTablero().getFichas()[i][j].getIcon().toString());
 						//No permite la salida si la ficha le pertenece al jugador
 						if(i != jugadorJugando) {
@@ -136,11 +134,11 @@ public class Controller {
 
 			//Avisa que existe una barrera en la posición a la que va
 			if(fichasURL.size() ==2) {
-//				for(int k=0;k<4;k++) {
-//					if(view.getTablero().getFichas()[jugadorJugando][k].getIcon().toString().equals(fichasURL.get(1))) {
-//
-//					}
-//				}
+				//				for(int k=0;k<4;k++) {
+				//					if(view.getTablero().getFichas()[jugadorJugando][k].getIcon().toString().equals(fichasURL.get(1))) {
+				//
+				//					}
+				//				}
 
 				return null;
 			}
@@ -171,7 +169,11 @@ public class Controller {
 
 
 	public void mover(int jugadorJugando,int ficha, int numeroDado) {
-
+		//todavia no se sabe - inicio
+		if(tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPosicionFicha()==-1) {
+			tablero.getJugadores()[jugadorJugando].getFicha()[ficha].setPosicionFicha(0);
+		}
+		//final
 
 		int posicionFicha= tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPosicionFicha();
 		int paisEnDondeEsta = tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPaisEnDondeEstaAhora();
