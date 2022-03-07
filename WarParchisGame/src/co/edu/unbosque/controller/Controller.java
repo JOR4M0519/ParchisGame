@@ -26,17 +26,30 @@ public class Controller {
 
 		//		}
 
-						mover(3,2,21);
 						mover(0,0,4);
-						System.out.println("Cant Fichas: "+tablero.getRecorrido()[0].getSector()[7].getCantFichas());
-						System.out.println("Cant Fichas: "+tablero.getRecorrido()[0].getSector()[8].getCantFichas());
-		//		mover(1,2,9);
-		//		mover(1,3,9);
-		//		mover(0,3,20);
-		//		mover(0,3,6);
-		//		mover(1,3,9);
-		//		mover(0,3,6);
+						mover(0,2,4);
+						
+						for (int i = 0; i <tablero.getRecorrido().length ; i++) {
+							for (int j = 0; j < tablero.getRecorrido()[0].getSector().length; j++) {
+								System.out.println("Sector: "+i+" Casilla: "+j+" CantFichas: "+tablero.getRecorrido()[i].getSector()[j].getCantFichas());
+							}
+						}
+						System.out.println("Posicion "+tablero.getJugadores()[0].getFicha()[0].getPosicionFicha());
+//						mover(0,0,4);
+//						mover(3,2,21);
+//						mover(0,2,4);
+//						
+//						mover(1,2,9);
+//						mover(1,3,9);
+//						mover(0,3,20);
+//						mover(0,3,6);
+//						mover(1,3,9);
+//						mover(0,3,6);
 
+						
+						
+						
+				
 
 		//		}		
 		
@@ -44,17 +57,6 @@ public class Controller {
 		 * se pone en el inicio cuando 
 		 * 
 		 */
-		
-		
-		
-		
-		
-		
-		
-		mover(0,0,4);
-		mover(3,2,21);
-		mover(0,2,4);
-
 
 	}
 
@@ -84,7 +86,7 @@ public class Controller {
 						int posicionActual=tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].getPosicionFicha();
 						tablero.getRecorrido()[paisActual].getSector()[posicionActual].setCantFichas(tablero.getRecorrido()[paisActual].getSector()[posicionActual].getCantFichas()-1);
 						
-						tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].setPosicionFicha(-1);
+						tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].setVuelta(0);;
 						tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].setPaisEnDondeEstaAhora(fichaAcomer[0]);
 						
 						view.getTablero().remove(view.getTablero().getFichas()[j][k]);
@@ -139,8 +141,8 @@ public class Controller {
 		//		System.out.println(posicionActual);
 		//		//Muestra el numero de sectores que recorre hasta dar la vuelta
 		//		int sectorActualGanar = tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPaisEnDondeEstaAhora();
-
-		tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionActual].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionActual].getCantFichas()-1);
+		int posicionVieja = posicionActual;
+		int paisAnterior = paisEnDondeEsta;
 		
 		if((posicionActual+numeroDado) <=17) {
 			posicionActual = posicionActual+numeroDado;
@@ -149,11 +151,17 @@ public class Controller {
 			if(paisEnDondeEsta == 4) {
 				paisEnDondeEsta = 0;
 			}
-			posicionActual = (posicionActual+numeroDado-17-1);
+			posicionActual = (posicionActual+numeroDado-17);
 			System.out.println("resta:"+posicionActual);
 		}
+				
+		tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionActual].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionActual].getCantFichas()+1);
 		
-		tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionActual].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionActual-1].getCantFichas()+1);
+		if(tablero.getRecorrido()[paisAnterior].getSector()[posicionVieja].getCantFichas() !=0 ) {
+			tablero.getRecorrido()[paisAnterior].getSector()[posicionVieja].setCantFichas(tablero.getRecorrido()[paisAnterior].getSector()[posicionVieja].getCantFichas()-1);
+			}
+		
+		
 		/*
 		 * No pasar la barrera
 		 * no posicionar más de dos fichas en una celda
@@ -170,10 +178,6 @@ public class Controller {
 			for (int i = 0; i < tablero.getJugadores().length ; i++) {
 
 				for (int j = 0; j < tablero.getJugadores()[i].getFicha().length; j++) {
-
-		
-					
-					
 					if(posicionActual == tablero.getJugadores()[i].getFicha()[j].getPosicionFicha()
 							&& (paisEnDondeEsta) == (tablero.getJugadores()[i].getFicha()[j].getPaisEnDondeEstaAhora())){
 
@@ -230,7 +234,7 @@ public class Controller {
 	public void mover(int jugadorJugando,int ficha, int numeroDado) {
 		//todavia no se sabe - inicio
 		if(tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPosicionFicha()==-1) {
-			tablero.getJugadores()[jugadorJugando].getFicha()[ficha].setPosicionFicha(0);
+			tablero.getJugadores()[jugadorJugando].getFicha()[ficha].setVuelta(0);
 		}
 		//final
 
@@ -240,7 +244,6 @@ public class Controller {
 		int coorX=0;
 		int coorY=0;
 
-		boolean saltoPais = false;
 
 		if(validarExistenciaBarrera(jugadorJugando,posicionFicha,paisEnDondeEsta,ficha, numeroDado)) {
 			
