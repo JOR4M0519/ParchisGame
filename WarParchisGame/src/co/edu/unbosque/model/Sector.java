@@ -40,7 +40,6 @@ public class Sector {
 		if(color.equals("UCRANIA") || color.equals("CHINA")) {
 
 			for(int x=0;x<8;x++) {
-
 				if(filaGanadora[0]==null) {
 					filaGanadora[0]=new Celdas(xCor,yCor);
 				}else if (x>0 && x<8){
@@ -93,34 +92,15 @@ public class Sector {
 				if(sector[0]==null) {
 					sector[0]=new Celdas(xCor,yCor);
 
-					//Organiza celdas de 0 a 7
 				}else if (x>0 && x<=7){
-					yCor=yCor-32*n;
-					//Set Seguro Celda en 4
-					if(x==4) {
-						sector[x]=new Celdas(xCor,yCor);
-						sector[x].setSeguro(true);
-					}else {
-						sector[x]=new Celdas(xCor,yCor);
-					}
-
-					//Organiza celdas de 8 a 15
+					yCor=yCor-32*n;	
+					sector[x]=new Celdas(xCor,yCor);
 				}else if(x>7 && x<=15) {
 					xCor = xCor+32*n;
-					//Set Seguro Celda en 11
-					if(x==16) {
 						sector[x]=new Celdas(xCor-11*n,yCor-23*n);
-						sector[x].setSeguro(true);
-					}else {
-						sector[x]=new Celdas(xCor-11*n,yCor-23*n);
-					}
-
-					//Organiza celdas de 16
 				}else if(x>15 && x<=16) {
 					yCor=yCor-97*n;
-					//Set Seguro Celda en 16
 					sector[x]=new Celdas(xCor-10*n,yCor);
-					sector[x].setSeguro(true);
 				}
 			}	
 			return;
@@ -132,28 +112,14 @@ public class Sector {
 				sector[0]=new Celdas(xCor,yCor);
 			}else if (x>0 && x<=7){
 				xCor=xCor-32*n;
-				//Set seguro de 4
-				if(x==4) {
 					sector[x]=new Celdas(xCor,yCor);
-					sector[x].setSeguro(true);
-				}else {
-					sector[x]=new Celdas(xCor,yCor);
-				}
 			}else if(x>7 && x<=15) {
 				yCor = yCor-32*n;
-				//Set seguro de 11
-				if(x==11) {
 					sector[x]=new Celdas(xCor-20*n,yCor+9*n);
-					sector[x].setSeguro(true);
-				}else {
-					sector[x]=new Celdas(xCor-20*n,yCor+9*n);
-				}
-				
 			}else if(x>15 && x<=16) {
 				xCor=xCor-97*n;
-				//Set seguro de 16
 				sector[x]=new Celdas(xCor+1*n,yCor+8*n);
-				sector[x].setSeguro(true);
+				
 			}
 		}	
 	}

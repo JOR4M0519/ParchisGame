@@ -21,7 +21,7 @@ public class Tablero {
 		String pais="";
 
 		for(int i=0;i<numeroJugadores;i++) {
-			
+
 			switch(i){
 			case 0: pais="EEUU";
 			break;
@@ -34,14 +34,13 @@ public class Tablero {
 			}
 
 			jugadores[i]= new Jugador(pais);
-
 		}	
 	}
 
 
-	
-	
-	
+
+
+
 	public int getTurno() {
 		return turno;
 	}

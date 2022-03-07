@@ -4,19 +4,20 @@ public class Celdas {
 	
     private int x;
     private int y;
-    private boolean seguro;
+    private int cantFichas;
     
     public Celdas(int x,int y) {
+    	this.cantFichas = 0;
     	this.x = x;
     	this.y = y;
     }
-    
-	public boolean isSeguro() {
-		return seguro;
+
+	public int getCantFichas() {
+		return cantFichas;
 	}
 
-	public void setSeguro(boolean seguro) {
-		this.seguro = seguro;
+	public void setCantFichas(int cantFichas) {
+		this.cantFichas = cantFichas;
 	}
 
 	public int getX() {
