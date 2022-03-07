@@ -16,11 +16,11 @@ public class PanelBotones extends JPanel{
 		setLayout(null);
 		setBounds(675,0, 300, 675);
 		
-		JLabel dado = new JLabel();
-		dado.setBounds(675,0,300,675);
-		dado.setIcon(new ImageIcon(new ImageIcon("./Data/3_4.png").getImage()));
-		dado.setBackground(Color.BLACK);
-		add(dado);
+//		JLabel dado = new JLabel();
+//		dado.setBounds(675,0,300,675);
+//		dado.setIcon(new ImageIcon(new ImageIcon("./Data/3_4.png").getImage()));
+//		dado.setBackground(Color.BLACK);
+//		add(dado);
 		
 		img = new ImageIcon("./Data/PanelBotones.png");
 		fondo = new JLabel();
@@ -31,4 +31,7 @@ public class PanelBotones extends JPanel{
 		
 		
 	}
+	
+	
+	
 }
