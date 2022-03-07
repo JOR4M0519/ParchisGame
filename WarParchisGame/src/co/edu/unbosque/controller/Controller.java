@@ -23,6 +23,7 @@ public class Controller {
 
 		//		for(int j =1;j<=50;j++) {
 		//			mover((int) (Math.random()*4+0),(int) (Math.random()*4+0),(int)(Math.random()*30+1));
+
 		//		}
 
 						mover(3,2,21);
@@ -35,6 +36,24 @@ public class Controller {
 		//		mover(0,3,6);
 		//		mover(1,3,9);
 		//		mover(0,3,6);
+
+
+		//		}		
+		
+		/**verificar si el jugador esta en la base y si puede salir,
+		 * se pone en el inicio cuando 
+		 * 
+		 */
+		
+		
+		
+		
+		
+		
+		
+		mover(0,0,4);
+		mover(3,2,21);
+		mover(0,2,4);
 
 
 	}
@@ -60,6 +79,7 @@ public class Controller {
 					if(view.getTablero().getFichas()[j][k].getIcon().toString().equals(fichasURL.get(i))) {
 
 						//Agregar mover ficha enemiga a la prision
+
 						int paisActual = tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].getPaisEnDondeEstaAhora();
 						int posicionActual=tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].getPosicionFicha();
 						tablero.getRecorrido()[paisActual].getSector()[posicionActual].setCantFichas(tablero.getRecorrido()[paisActual].getSector()[posicionActual].getCantFichas()-1);
@@ -208,7 +228,11 @@ public class Controller {
 
 
 	public void mover(int jugadorJugando,int ficha, int numeroDado) {
-
+		//todavia no se sabe - inicio
+		if(tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPosicionFicha()==-1) {
+			tablero.getJugadores()[jugadorJugando].getFicha()[ficha].setPosicionFicha(0);
+		}
+		//final
 
 
 		int posicionFicha= tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPosicionFicha();
