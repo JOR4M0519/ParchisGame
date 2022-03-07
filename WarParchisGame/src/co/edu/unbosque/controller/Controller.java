@@ -28,9 +28,10 @@ public class Controller {
 		//				mover(0,0,4);
 
 						mover(0,0,4);
+						mover(3,2,21);
 						mover(0,2,4);
 						
-						mover(3,2,21);
+						
 
 		//		mover(1,2,9);
 		//		mover(1,3,9);
@@ -49,13 +50,17 @@ public class Controller {
 
 	}
 
-	public void encadenarFicha(int jugadorJugando) {
+	public void encadenarFicha(int jugadorJugando, int[] fichaAcomer) {
 		for(int i=0;i<fichasURL.size();i++) {
 			for(int j=0;j<tablero.getJugadores().length;j++) {
 				for(int k=0;k<4;k++) {
 					if(view.getTablero().getFichas()[j][k].getIcon().toString().equals(fichasURL.get(i))) {
-
+						
 						//Agregar mover ficha enemiga a la prision
+						
+						
+						tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].setPosicionFicha(-1);
+						tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].setPaisEnDondeEstaAhora(fichaAcomer[0]);
 						view.getTablero().remove(view.getTablero().getFichas()[j][k]);
 					}
 				}
@@ -64,8 +69,9 @@ public class Controller {
 		}
 	}
 
-	public boolean comerFicha(int jugadorJugando,int posicionActual,int paisEnDondeEsta,int ficha, int numeroDado) {
+	public int[] comerFicha(int jugadorJugando,int posicionActual,int paisEnDondeEsta,int ficha, int numeroDado) {
 		fichasURL.clear();
+		int fichaAcomer[] = {-1,-1};
 
 		//		int posicionActual = tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPosicionFicha();
 		//		System.out.println(posicionActual);
@@ -105,10 +111,12 @@ public class Controller {
 
 					if(posicionActual == tablero.getJugadores()[i].getFicha()[j].getPosicionFicha()
 							&& (paisEnDondeEsta) == (tablero.getJugadores()[i].getFicha()[j].getPaisEnDondeEstaAhora())){
-
+						
 						fichasURL.add(view.getTablero().getFichas()[i][j].getIcon().toString());
 						//No permite la salida si la ficha le pertenece al jugador
 						if(i != jugadorJugando) {
+							fichaAcomer[0] = i;
+							fichaAcomer[1] = j;
 							validacion = true;
 						}
 					}
@@ -126,14 +134,13 @@ public class Controller {
 //					}
 //				}
 
-
-				return false;
+				return null;
 			}
 		}
 		if(validacion) {
-			return true;
+			return fichaAcomer;
 		}else {
-			return false;
+			return null;
 		}
 	}
 
@@ -162,7 +169,7 @@ public class Controller {
 		int paisEnDondeEsta = tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPaisEnDondeEstaAhora();
 		int coorX=0;
 		int coorY=0;
-		boolean comerFicha = comerFicha(jugadorJugando, posicionFicha, paisEnDondeEsta , ficha, numeroDado);
+		int[] fichaAcomer = comerFicha(jugadorJugando, posicionFicha, paisEnDondeEsta , ficha, numeroDado);
 
 		if(fichasURL.size() != 2){
 			for(int x=0;x<numeroDado;x++) {
@@ -204,9 +211,9 @@ public class Controller {
 				try {
 					Thread.sleep(200);
 
-					if(comerFicha) {	
+					if(fichaAcomer != null) {	
 						if(x==numeroDado-1) {
-							encadenarFicha(jugadorJugando);
+							encadenarFicha(jugadorJugando, fichaAcomer);
 						}
 					}
 
