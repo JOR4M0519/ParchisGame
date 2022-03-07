@@ -24,18 +24,18 @@ public class Controller {
 		//		for(int j =1;j<=50;j++) {
 		//			mover((int) (Math.random()*4+0),(int) (Math.random()*4+0),(int)(Math.random()*30+1));
 		//		}		
-		
+
 		/**verificar si el jugador esta en la base y si puede salir,
 		 * se pone en el inicio cuando 
 		 * 
 		 */
-		
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
+
 		mover(0,0,4);
 		mover(3,2,21);
 		mover(0,2,4);
@@ -43,7 +43,42 @@ public class Controller {
 	}
 
 
-	public boolean salirDeCelda(int numDadoUno,int numDadoDos) {
+
+
+	public boolean movimientoAutorizado(int jugador) {
+		boolean mover = false;
+		int pais=0;
+
+		if(dadosIguales(tablero.getDados().getNumeros()[0],tablero.getDados().getNumeros()[1])!=true) {
+			mover = true;
+			pais = pais +1;
+		}else {
+			tablero.getJugadores()[jugador].setNumeroIntentos(tablero.getJugadores()[jugador].getNumeroIntentos()+1);
+
+			if(tablero.getJugadores()[jugador].getFicha()[0].getVuelta()==-1 || tablero.getJugadores()[jugador].getFicha()[1].getVuelta()==-1 || tablero.getJugadores()[jugador].getFicha()[2].getVuelta()==-1 || tablero.getJugadores()[jugador].getFicha()[3].getVuelta()==-1) {
+				if(tablero.getJugadores()[jugador].getFicha()[0].getVuelta()==-1 && tablero.getJugadores()[jugador].getFicha()[1].getVuelta()==-1 && tablero.getJugadores()[jugador].getFicha()[2].getVuelta()==-1 && tablero.getJugadores()[jugador].getFicha()[3].getVuelta()==-1) {                     
+
+				}else {
+					
+					
+				}
+			}else {
+				if(tablero.getJugadores()[jugador].getNumeroIntentos()<3) {
+					mover=true;
+                    
+				}
+			}
+			}
+		
+		if(pais>tablero.getJugadores().length) {
+			pais =0;
+		}
+
+		return mover;
+	}
+
+
+	public boolean dadosIguales(int numDadoUno,int numDadoDos) {
 		if(numDadoUno==numDadoDos) {
 			return true;
 		}
@@ -170,8 +205,8 @@ public class Controller {
 
 	public void mover(int jugadorJugando,int ficha, int numeroDado) {
 		//todavia no se sabe - inicio
-		if(tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPosicionFicha()==-1) {
-			tablero.getJugadores()[jugadorJugando].getFicha()[ficha].setPosicionFicha(0);
+		if(tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getVuelta()==-1) {
+			tablero.getJugadores()[jugadorJugando].getFicha()[ficha].setVuelta(0);
 		}
 		//final
 

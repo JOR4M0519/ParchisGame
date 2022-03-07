@@ -4,8 +4,10 @@ public class Jugador {
 
 	private Ficha ficha[];
 	private String pais;
+	private int numeroIntentos;
 
 	public Jugador(String pais) {
+		numeroIntentos = 0;
 		this.pais = pais;
 		ficha = new Ficha[4];
 		generarFichas();
@@ -82,6 +84,13 @@ public class Jugador {
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
-	
+
+	public int getNumeroIntentos() {
+		return numeroIntentos;
+	}
+
+	public void setNumeroIntentos(int numeroIntentos) {
+		this.numeroIntentos = numeroIntentos;
+	}
 
 }

@@ -5,9 +5,11 @@ public class Tablero {
 	private Jugador[] jugadores;
 	private Sector[] recorrido;
 	private int turno;
+	
 
 	public Tablero(){
 
+		
 		recorrido = new Sector[4];
 		recorrido[0] = new Sector("EEUU");
 		recorrido[1] = new Sector("CHINA");
