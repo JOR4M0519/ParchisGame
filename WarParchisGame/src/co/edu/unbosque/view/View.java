@@ -34,20 +34,8 @@ public class View extends JFrame {
 		panelBotones = new PanelBotones();
 		tablero = new DesignTablero(coordenadasX,coordenadasY, numJugadores);
 		
-		setLayout(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
-		c.fill = GridBagConstraints.BOTH;
-		c.gridx = 0;
-		c.gridy = 0;
-		c.weightx = 0.01;
-		c.weighty = 0;
-		add(tablero, c);
-		
-		c.gridy = 0;
-		c.gridx = 1;
-		c.weightx = 0;
-		c.weighty = 0;
-		add(panelBotones, c);
+		add(tablero);
+		add(panelBotones);
 		
 	}
 

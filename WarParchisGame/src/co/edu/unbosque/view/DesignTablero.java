@@ -15,6 +15,7 @@ public class DesignTablero extends JPanel {
 	public DesignTablero(int[][] coordenadasX, int[][] coordenadasY, int numJugadores) {
 		
 		setLayout(null);
+		setBounds(0, 0, 675, 675);
 		fichasInicio(coordenadasX,coordenadasY,numJugadores);
 		img = new ImageIcon("./Data/Table.png");
 		fondo = new JLabel();
