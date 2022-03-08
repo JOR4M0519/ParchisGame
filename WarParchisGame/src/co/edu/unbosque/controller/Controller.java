@@ -20,41 +20,60 @@ public class Controller {
 
 		view = new View(generarCoordenadasInicio("X"),generarCoordenadasInicio("Y"), tablero.getJugadores().length);
 
-
-		//		for(int j =1;j<=50;j++) {
-		//			mover((int) (Math.random()*4+0),(int) (Math.random()*4+0),(int)(Math.random()*30+1));
-
-		//		}
-
-						mover(0,0,4);
-						mover(0,2,4);
-						
-						for (int i = 0; i <tablero.getRecorrido().length ; i++) {
-							for (int j = 0; j < tablero.getRecorrido()[0].getSector().length; j++) {
-								System.out.println("Sector: "+i+" Casilla: "+j+" CantFichas: "+tablero.getRecorrido()[i].getSector()[j].getCantFichas());
-							}
+				boolean terminarJuego = false;
+				while(!terminarJuego) {
+					
+					for(int i=0;i<4;i++) {
+						generarDado();
+						int ficha = (int) Math.floor(Math.random()*(4-0)+0);
+						if(view.getTablero().getPuntuacion()[0].equals("4")) {
+						terminarJuego = true;
+						}else {
+							view.getPanelBotones().getTurno().setText(tablero.getJugadores()[i].getPais());
+							mover(i,ficha,tablero.getDados().getNumeros()[0]);
+							mover(i,ficha,tablero.getDados().getNumeros()[1]);
+//							mover(i,ficha,(int)(Math.random()*30+1));
 						}
-						
-						System.out.println("Posicion "+tablero.getJugadores()[0].getFicha()[0].getPosicionFicha());
-//						
-						mover(0,0,4);
-//						mover(3,2,21);
-//						mover(0,2,4);
-//						
-//						mover(1,2,9);
-//						mover(1,3,9);
-//						mover(0,3,20);
-//						mover(0,3,6);
-//						mover(1,3,9);
-//						mover(0,3,6);
+					}
+					
+				}
 
-						
-						
-						
-				
+//		mover(0,0,4);
+//		mover(0,2,20);
+//		mover(0,1,20);
+//
+//		mover(0,0,12);
+//		mover(0,0,12);
+//		mover(0,0,2);
+
+
+//		for (int i = 0; i <tablero.getRecorrido().length ; i++) {
+//			for (int j = 0; j < tablero.getRecorrido()[0].getSector().length; j++) {
+//				System.out.println("Sector: "+i+" Casilla: "+j+" CantFichas: "+tablero.getRecorrido()[i].getSector()[j].getCantFichas());
+//			}
+//		}
+
+//		System.out.println("Posicion "+tablero.getJugadores()[0].getFicha()[0].getPosicionFicha());
+//		System.out.println("Posicion "+tablero.getJugadores()[0].getFicha()[2].getPosicionFicha());
+		//						
+
+		//						mover(3,2,21);
+		//						mover(0,2,4);
+		//						
+		//						mover(1,2,9);
+		//						mover(1,3,9);
+		//						mover(0,3,20);
+		//						mover(0,3,6);
+		//						mover(1,3,9);
+		//						mover(0,3,6);
+
+
+
+
+
 
 		//		}		
-		
+
 		/**verificar si el jugador esta en la base y si puede salir,
 		 * se pone en el inicio cuando 
 		 * 
@@ -87,10 +106,10 @@ public class Controller {
 						int paisActual = tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].getPaisEnDondeEstaAhora();
 						int posicionActual=tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].getPosicionFicha();
 						tablero.getRecorrido()[paisActual].getSector()[posicionActual].setCantFichas(tablero.getRecorrido()[paisActual].getSector()[posicionActual].getCantFichas()-1);
-						
+
 						tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].setVuelta(0);;
 						tablero.getJugadores()[fichaAcomer[0]].getFicha()[fichaAcomer[1]].setPaisEnDondeEstaAhora(fichaAcomer[0]);
-						
+
 						view.getTablero().remove(view.getTablero().getFichas()[j][k]);
 					}
 				}
@@ -100,39 +119,36 @@ public class Controller {
 	}
 
 
-	public boolean validarExistenciaBarrera(int jugadorActual,int posicionActual,int paisActual,int ficha, int numeroDado) {
-		int paisMoverse = paisActual;
-		int posicionFinal = posicionActual;
-
-		if((posicionActual+numeroDado) <=17) {
-			posicionFinal = posicionActual+numeroDado;
-		}else {
-			paisMoverse++;
-			if(paisMoverse == 4) {
-				paisMoverse = 0;
-			}
-			posicionFinal = (posicionActual+numeroDado-17);
-		}
-
-		for (int i = numeroDado; i >0 ; i--) {
-			if(posicionFinal==0) {
-				posicionFinal = 17;
-				paisMoverse = paisActual;
-			}
-			for (int j = 0; j < tablero.getJugadores().length; j++) {
-				for (int k = 0; k < 4; k++) {
-					if(i == tablero.getJugadores()[j].getFicha()[k].getPosicionFicha()
-							&& (paisMoverse) == (tablero.getJugadores()[j].getFicha()[k].getPaisEnDondeEstaAhora())){
-						return true;
-					}
-
-				}
-			}
-			posicionFinal--;
-		}
-
-		return false;
-	}
+//	public boolean validarExistenciaBarrera(int jugadorActual,int posicionActual,int paisActual,int ficha, int numeroDado) {
+//		int posicionFinal = posicionActual;
+//		int paisFinal = 0;
+//
+//		if((posicionActual+numeroDado) <=17) {
+//			posicionFinal= posicionActual+numeroDado;
+//		}else {
+//			paisFinal =paisActual++;
+//			if(paisFinal== 4) {
+//				paisFinal= 0;
+//			}
+//			posicionFinal = (posicionActual+numeroDado-17);
+//			System.out.println("resta:"+posicionActual);
+//		}
+//
+//
+//		for (int i = 0; i<numeroDado ; i++) {
+//
+//			if(posicionActual <17) {
+//				posicionActual=0;
+//				paisActual = paisFinal; 
+//			}
+//
+//			if(tablero.getRecorrido()[paisActual].getSector()[posicionActual].getCantFichas() == 2) {
+//				return false;
+//			}
+//			posicionActual++;	
+//		}
+//		return true;
+//	}
 
 
 	public int[] comerFicha(int jugadorJugando,int posicionActual,int paisEnDondeEsta,int ficha, int numeroDado) {
@@ -143,10 +159,10 @@ public class Controller {
 		//		System.out.println(posicionActual);
 		//		//Muestra el numero de sectores que recorre hasta dar la vuelta
 		//		int sectorActualGanar = tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPaisEnDondeEstaAhora();
-		int posicionVieja = posicionActual;
-		int paisAnterior = paisEnDondeEsta;
-		
-		if((posicionActual+numeroDado) <=17) {
+//		int posicionVieja = posicionActual;
+//		int paisAnterior = paisEnDondeEsta;
+
+		if((posicionActual+numeroDado) <17) {
 			posicionActual = posicionActual+numeroDado;
 		}else {
 			paisEnDondeEsta++;
@@ -154,16 +170,20 @@ public class Controller {
 				paisEnDondeEsta = 0;
 			}
 			posicionActual = (posicionActual+numeroDado-17);
-			System.out.println("resta:"+posicionActual);
+//			System.out.println("resta:"+posicionActual);
 		}
-				
-		tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionActual].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionActual].getCantFichas()+1);
-		
-		if(tablero.getRecorrido()[paisAnterior].getSector()[posicionVieja].getCantFichas() !=0 ) {
-			tablero.getRecorrido()[paisAnterior].getSector()[posicionVieja].setCantFichas(tablero.getRecorrido()[paisAnterior].getSector()[posicionVieja].getCantFichas()-1);
-			}
-		
-		
+
+		/*
+		 * Anterior
+		 */
+
+		//		tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionActual].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionActual].getCantFichas()+1);
+		//
+		//		if(tablero.getRecorrido()[paisAnterior].getSector()[posicionVieja].getCantFichas() !=0 ) {
+		//			tablero.getRecorrido()[paisAnterior].getSector()[posicionVieja].setCantFichas(tablero.getRecorrido()[paisAnterior].getSector()[posicionVieja].getCantFichas()-1);
+		//		}
+
+
 		/*
 		 * No pasar la barrera
 		 * no posicionar más de dos fichas en una celda
@@ -235,7 +255,7 @@ public class Controller {
 
 	public void mover(int jugadorJugando,int ficha, int numeroDado) {
 		//todavia no se sabe - inicio
-		if(tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getPosicionFicha()==-1) {
+		if(tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getVuelta()==-1) {
 			tablero.getJugadores()[jugadorJugando].getFicha()[ficha].setVuelta(0);
 		}
 		//final
@@ -247,8 +267,8 @@ public class Controller {
 		int coorY=0;
 
 
-		if(validarExistenciaBarrera(jugadorJugando,posicionFicha,paisEnDondeEsta,ficha, numeroDado)) {
-			
+//		if(validarExistenciaBarrera(jugadorJugando,posicionFicha,paisEnDondeEsta,ficha, numeroDado)) {
+
 			int[] fichaAcomer = comerFicha(jugadorJugando, posicionFicha, paisEnDondeEsta , ficha, numeroDado);
 
 			if(fichasURL.size() != 2){
@@ -259,30 +279,49 @@ public class Controller {
 						tablero.getJugadores()[jugadorJugando].getFicha()[ficha].setVuelta(tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getVuelta()+1);
 						paisEnDondeEsta++;
 						if(paisEnDondeEsta>3) {
-//							saltoPais = true;
+							//							saltoPais = true;
 							paisEnDondeEsta=0;
-//							tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha-1].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha-1].getCantFichas()-1);
-//							tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].getCantFichas()+1);
+							//							tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha-1].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha-1].getCantFichas()-1);
+							//							tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].getCantFichas()+1);
 						}
 					}
-					
-//					if(!saltoPais) {
-//						tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha-1].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha-1].getCantFichas()-1);
-//						tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].getCantFichas()+1);
-//						saltoPais = false;	
-//					}
-					
-					
+
+					//					if(!saltoPais) {
+					//						tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha-1].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha-1].getCantFichas()-1);
+					//						tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].getCantFichas()+1);
+					//						saltoPais = false;	
+					//					}
+
+
 					if(tablero.getJugadores()[jugadorJugando].getFicha()[ficha].getVuelta()==4) {	
 						coorX = tablero.getRecorrido()[jugadorJugando].getFilaGanadora()[posicionFicha].getX();
 						coorY = tablero.getRecorrido()[jugadorJugando].getFilaGanadora()[posicionFicha].getY();
 
 						if(posicionFicha>=7) {
 							try {
+								if(view.getTablero().getFichas()[jugadorJugando][ficha].getLocation().getX() != 1000) {
 								Thread.sleep(200);
 								view.getTablero().getFichas()[jugadorJugando][ficha].setLocation(coorX,coorY);
-								System.out.println("Ganaste perra");
 								view.getTablero().getFichas()[jugadorJugando][ficha].setLocation(1000, 1000);
+								
+								if(view.getTablero().getPuntuacion()[jugadorJugando].equals("4")) {
+									view.exportWindows("Ha salvado todas sus unidades. Es una victoria", "Ganador", 1);
+								}
+								
+								view.getTablero().getPuntuacion()[jugadorJugando].setText(Integer.parseInt(
+								view.getTablero().getPuntuacion()[jugadorJugando].getText()+1)+"");
+								
+								view.exportWindows("Se ha salvado una unidad Militar", "Logro!", 1);
+								}
+//								for (int i = 0; i < 4; i++) {
+//									if(view.getTablero().getFichas()[jugadorJugando][i].getLocation().getX() == 1000) {
+//										contadorFicha++;
+//									}	
+//								}
+								
+								
+								
+								
 								return;
 							} catch (InterruptedException e) {
 								e.printStackTrace();
@@ -295,12 +334,28 @@ public class Controller {
 					}else {
 						coorX = tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].getX();
 						coorY = tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].getY();
+
+
+
+						tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].getCantFichas()-1);
+
 						posicionFicha++;
+
+						if(posicionFicha == 17 ) {
+							if(paisEnDondeEsta+1==4) {
+								tablero.getRecorrido()[0].getSector()[0].setCantFichas(tablero.getRecorrido()[0].getSector()[0].getCantFichas()+1);	
+								}else {
+									tablero.getRecorrido()[paisEnDondeEsta+1].getSector()[0].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta+1].getSector()[0].getCantFichas()+1);
+								}
+						}else {
+							tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].setCantFichas(tablero.getRecorrido()[paisEnDondeEsta].getSector()[posicionFicha].getCantFichas()+1);
+						}
+
 						tablero.getJugadores()[jugadorJugando].getFicha()[ficha].setPaisEnDondeEstaAhora(paisEnDondeEsta);
 						tablero.getJugadores()[jugadorJugando].getFicha()[ficha].setPosicionFicha(posicionFicha);					
 					}
 					try {
-						Thread.sleep(200);
+						Thread.sleep(500);
 
 						if(fichaAcomer != null) {	
 							if(x==numeroDado-1) {
@@ -318,9 +373,16 @@ public class Controller {
 				return;
 			} 
 			view.exportWindows("El terreno ya se encuentra ocupado por dos bases. Imposible posicionarse", "Avistamiento Fortaleza", 0);
-		}else {
-			view.exportWindows("Avistamos una barrera de dos bases. Imposible posicionarse", "Avistamiento Fortaleza", 0);	
-		}
+//		}else {
+//			view.exportWindows("Avistamos una barrera de dos bases. Imposible posicionarse", "Avistamiento Fortaleza", 0);	
+//		}
+	}
+	
+	public void generarDado(){
+		tablero.getDados().generarNumero();
+		int dado1 = tablero.getDados().getNumeros()[0];
+		int dado2 = tablero.getDados().getNumeros()[1];
+		view.getPanelBotones().cambiarDado(dado1, dado2);
 	}
 
 	public void funcionar() {
